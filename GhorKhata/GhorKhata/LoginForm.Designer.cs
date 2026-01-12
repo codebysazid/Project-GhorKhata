@@ -91,6 +91,8 @@
             lblForConPass = new Label();
             lblLogUserStatus = new Label();
             lblLogPassStatus = new Label();
+            btnVariX = new Button();
+            btnForgX = new Button();
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
             pnlVarify.SuspendLayout();
@@ -650,7 +652,8 @@
             // pnlVarify
             // 
             pnlVarify.Anchor = AnchorStyles.None;
-            pnlVarify.BackColor = Color.FromArgb(80, 83, 85);
+            pnlVarify.BackColor = Color.FromArgb(100, 103, 105);
+            pnlVarify.Controls.Add(btnVariX);
             pnlVarify.Controls.Add(btnVariSub);
             pnlVarify.Controls.Add(lnkResend);
             pnlVarify.Controls.Add(TxtCode);
@@ -667,6 +670,7 @@
             // 
             pnlForget.Anchor = AnchorStyles.None;
             pnlForget.BackColor = Color.FromArgb(80, 83, 85);
+            pnlForget.Controls.Add(btnForgX);
             pnlForget.Controls.Add(label3);
             pnlForget.Controls.Add(label4);
             pnlForget.Controls.Add(label5);
@@ -929,6 +933,39 @@
             lblLogPassStatus.TabIndex = 24;
             lblLogPassStatus.Text = "Wrong password";
             // 
+            // btnVariX
+            // 
+            btnVariX.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnVariX.BackColor = Color.FromArgb(192, 0, 0);
+            btnVariX.FlatStyle = FlatStyle.Popup;
+            btnVariX.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVariX.ForeColor = Color.FromArgb(235, 235, 235);
+            btnVariX.Location = new Point(378, 5);
+            btnVariX.Margin = new Padding(0);
+            btnVariX.Name = "btnVariX";
+            btnVariX.RightToLeft = RightToLeft.Yes;
+            btnVariX.Size = new Size(35, 35);
+            btnVariX.TabIndex = 16;
+            btnVariX.Text = "X";
+            btnVariX.UseVisualStyleBackColor = false;
+            btnVariX.Click += button1_Click_1;
+            // 
+            // btnForgX
+            // 
+            btnForgX.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnForgX.BackColor = Color.FromArgb(192, 0, 0);
+            btnForgX.FlatStyle = FlatStyle.Popup;
+            btnForgX.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnForgX.ForeColor = Color.FromArgb(235, 235, 235);
+            btnForgX.Location = new Point(378, 5);
+            btnForgX.Margin = new Padding(0);
+            btnForgX.Name = "btnForgX";
+            btnForgX.RightToLeft = RightToLeft.Yes;
+            btnForgX.Size = new Size(35, 35);
+            btnForgX.TabIndex = 42;
+            btnForgX.Text = "X";
+            btnForgX.UseVisualStyleBackColor = false;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1024,5 +1061,7 @@
         private Label lblForConPass;
         private Label lblLogPassStatus;
         private Label lblLogUserStatus;
+        private Button btnVariX;
+        private Button btnForgX;
     }
 }
