@@ -12,6 +12,7 @@ namespace GhorKhata
         //Surface
         public static Color SurfacePanel = Color.FromArgb(60, 63, 65); //Background for the main panels (Your current color)
         public static Color SurfaceDark = Color.FromArgb(45, 45, 48);//Darker background for form depth
+        public static Color SurfaceLight = Color.FromArgb(80, 83, 85);//Lighter background for highlights
 
         //Components
         public static Color InputBg = Color.FromArgb(75, 75, 80); //Background for TextBoxes/Inputs
@@ -31,5 +32,7 @@ namespace GhorKhata
         public static Color StatusSuccess = Color.FromArgb(40, 167, 69);//Success green (Save/Register)
         public static Color StatusError = Color.FromArgb(220, 53, 69);//Error red (Delete/Cancel)
         public static Color StatusWarning = Color.FromArgb(255, 193, 7);//Warning yellow/amber
+        //Font
+        public static Font InputFont = new Font("Arial Rounded MT", 12F, FontStyle.Bold);
     }
 }

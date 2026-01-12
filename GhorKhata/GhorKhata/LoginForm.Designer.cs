@@ -41,6 +41,7 @@
             pnlLogin = new Panel();
             lnkForget = new LinkLabel();
             pnlRegistration = new Panel();
+            lblTermsStatus = new Label();
             lblGenderStatus = new Label();
             lblDOBStatus = new Label();
             lblEmailStatus = new Label();
@@ -68,6 +69,8 @@
             txtRegName = new TextBox();
             lblRegName = new Label();
             lblRegistration = new Label();
+            pnlVarify = new Panel();
+            pnlForget = new Panel();
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
             SuspendLayout();
@@ -143,6 +146,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lblNewtoGhorKhata
             // 
@@ -219,7 +223,7 @@
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(lblLoginPass);
             pnlLogin.Controls.Add(txtLoginPass);
-            pnlLogin.Location = new Point(310, 30);
+            pnlLogin.Location = new Point(153, 30);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(480, 800);
             pnlLogin.TabIndex = 12;
@@ -245,6 +249,7 @@
             // 
             pnlRegistration.Anchor = AnchorStyles.None;
             pnlRegistration.BackColor = Color.FromArgb(60, 63, 65);
+            pnlRegistration.Controls.Add(lblTermsStatus);
             pnlRegistration.Controls.Add(lblGenderStatus);
             pnlRegistration.Controls.Add(lblDOBStatus);
             pnlRegistration.Controls.Add(lblEmailStatus);
@@ -272,11 +277,22 @@
             pnlRegistration.Controls.Add(txtRegName);
             pnlRegistration.Controls.Add(lblRegName);
             pnlRegistration.Controls.Add(lblRegistration);
-            pnlRegistration.Location = new Point(795, 30);
+            pnlRegistration.Location = new Point(638, 30);
             pnlRegistration.Name = "pnlRegistration";
             pnlRegistration.Size = new Size(480, 800);
             pnlRegistration.TabIndex = 13;
             pnlRegistration.Paint += panel2_Paint;
+            // 
+            // lblTermsStatus
+            // 
+            lblTermsStatus.Anchor = AnchorStyles.None;
+            lblTermsStatus.AutoSize = true;
+            lblTermsStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTermsStatus.ForeColor = Color.Red;
+            lblTermsStatus.Location = new Point(90, 574);
+            lblTermsStatus.Name = "lblTermsStatus";
+            lblTermsStatus.Size = new Size(0, 14);
+            lblTermsStatus.TabIndex = 29;
             // 
             // lblGenderStatus
             // 
@@ -286,9 +302,8 @@
             lblGenderStatus.ForeColor = Color.Red;
             lblGenderStatus.Location = new Point(169, 404);
             lblGenderStatus.Name = "lblGenderStatus";
-            lblGenderStatus.Size = new Size(37, 14);
+            lblGenderStatus.Size = new Size(0, 14);
             lblGenderStatus.TabIndex = 28;
-            lblGenderStatus.Text = "Error";
             // 
             // lblDOBStatus
             // 
@@ -310,9 +325,8 @@
             lblEmailStatus.ForeColor = Color.Red;
             lblEmailStatus.Location = new Point(90, 270);
             lblEmailStatus.Name = "lblEmailStatus";
-            lblEmailStatus.Size = new Size(37, 14);
+            lblEmailStatus.Size = new Size(0, 14);
             lblEmailStatus.TabIndex = 26;
-            lblEmailStatus.Text = "Error";
             lblEmailStatus.Click += lblEmailStatus_Click;
             // 
             // lblRegUserStatus
@@ -323,9 +337,8 @@
             lblRegUserStatus.ForeColor = Color.Red;
             lblRegUserStatus.Location = new Point(90, 203);
             lblRegUserStatus.Name = "lblRegUserStatus";
-            lblRegUserStatus.Size = new Size(37, 14);
+            lblRegUserStatus.Size = new Size(0, 14);
             lblRegUserStatus.TabIndex = 25;
-            lblRegUserStatus.Text = "Error";
             lblRegUserStatus.Click += lblRegUserStatus_Click;
             // 
             // lblNameStatus
@@ -336,9 +349,8 @@
             lblNameStatus.ForeColor = Color.Red;
             lblNameStatus.Location = new Point(90, 136);
             lblNameStatus.Name = "lblNameStatus";
-            lblNameStatus.Size = new Size(37, 14);
+            lblNameStatus.Size = new Size(0, 14);
             lblNameStatus.TabIndex = 24;
-            lblNameStatus.Text = "Error";
             lblNameStatus.Click += lblNameStatus_Click;
             // 
             // lblConPassStatus
@@ -611,12 +623,32 @@
             lblRegistration.Text = "Registraion";
             lblRegistration.Click += lblRegistration_Click;
             // 
+            // pnlVarify
+            // 
+            pnlVarify.Anchor = AnchorStyles.None;
+            pnlVarify.BackColor = Color.FromArgb(80, 83, 85);
+            pnlVarify.Location = new Point(1134, 43);
+            pnlVarify.Name = "pnlVarify";
+            pnlVarify.Size = new Size(417, 318);
+            pnlVarify.TabIndex = 14;
+            // 
+            // pnlForget
+            // 
+            pnlForget.Anchor = AnchorStyles.None;
+            pnlForget.BackColor = Color.FromArgb(80, 83, 85);
+            pnlForget.Location = new Point(1134, 434);
+            pnlForget.Name = "pnlForget";
+            pnlForget.Size = new Size(417, 318);
+            pnlForget.TabIndex = 15;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
             ClientSize = new Size(1584, 861);
+            Controls.Add(pnlForget);
+            Controls.Add(pnlVarify);
             Controls.Add(pnlRegistration);
             Controls.Add(pnlLogin);
             Controls.Add(btnBack);
@@ -677,5 +709,8 @@
         private Label lblDOBStatus;
         private Label lblEmailStatus;
         private Label lblGenderStatus;
+        private Label lblTermsStatus;
+        private Panel pnlVarify;
+        private Panel pnlForget;
     }
 }

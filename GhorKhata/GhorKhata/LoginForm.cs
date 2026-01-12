@@ -16,45 +16,88 @@ namespace GhorKhata
         {
             InitializeComponent();
         }
+
         public void CheckRegistrationRules()
         {
- 
             string name = txtRegName.Text.Trim();
             string user = txtRegUser.Text.Trim();
             string email = txtRegEmail.Text.Trim();
             DateTime dob = dtpDOB.Value;
+            string gender = cmbGender.SelectedItem?.ToString() ?? "";
             string pass = txtRegPass.Text;
             string confirm = txtRegConPass.Text;
             bool termsAccepted = chkTerms.Checked;
+            
 
-      
-            bool hasLength = pass.Length >= 6;
-            bool hasLetter = pass.Any(char.IsLetter);
-            bool hasDigit = pass.Any(char.IsDigit);
-            bool isSafePassword = hasLength && hasLetter && hasDigit;
+            // Name validation
+            bool isNameValid = !string.IsNullOrWhiteSpace(name) && name.Length >= 3;
+            if (!isNameValid)
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    lblNameStatus.Text = "⚠️ Name cannot be empty";
+                }
+                else
+                {
+                    lblNameStatus.Text = "⚠️ Name must be at least 3 characters";
+                }
 
-   
+                lblNameStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else
+            {
+                lblNameStatus.Text = "";
+            }
+
+
+            // Username validation
+            bool isUsernameValid = user.Length >= 3 &&
+                                  user.All(c => (c >= 'a' && c <= 'z') ||
+                                               (c >= '0' && c <= '9'));
+            if (user.Length < 3)
+            {
+                lblRegUserStatus.Text = "⚠️ Username too short (3+)";
+                lblRegUserStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else if (!user.All(x => (x >= 'a' && x <= 'z') ||
+                                   (x >= '0' && x <= '9')))
+            {
+                lblRegUserStatus.Text = "⚠️ Only letters(a-z) and numbers(0-9) allowed";
+                lblRegUserStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else if (string.IsNullOrEmpty(user))
+            {
+                lblRegUserStatus.Text = "⚠️ Username cannot be empty";
+                lblRegUserStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else
+            {
+                lblRegUserStatus.Text = "";
+            }
+
+
+            // Email validation feedback
             bool isValidEmail = !string.IsNullOrEmpty(email) &&
                                email.Contains("@") &&
                                email.Contains(".");
+            if (!string.IsNullOrEmpty(email) && !isValidEmail)
+            {
+                lblEmailStatus.Text = "⚠️ Invalid email format";
+                lblEmailStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else if (string.IsNullOrEmpty(email))
+            {
+                lblEmailStatus.Text = "⚠️ Email cannot be empty";
+                lblEmailStatus.ForeColor = ThemeColor.StatusError;
+            }
+            else
+            {
+                lblEmailStatus.Text = "";
+            }
 
-       
-            bool isMatch = (pass == confirm && !string.IsNullOrEmpty(pass));
-            bool isOfAge = dob.Date <= DateTime.Today.AddYears(-13);
-            bool isUsernameValid = !string.IsNullOrWhiteSpace(user) && user.Length >= 3;
-            bool isNameValid = !string.IsNullOrWhiteSpace(name);
 
- 
-            bool allConditionsMet = isUsernameValid &&
-                                   isValidEmail &&
-                                   cmbGender.SelectedIndex != -1 &&
-                                   isNameValid &&
-                                   isOfAge &&
-                                   isSafePassword &&
-                                   isMatch &&
-                                   termsAccepted;
-
-      
+                // Age validation feedback
+                bool isOfAge = dob.Date <= DateTime.Today.AddYears(-13);
             if (!isOfAge)
             {
                 lblDOBStatus.Text = "⚠️ You must be 13+";
@@ -65,69 +108,81 @@ namespace GhorKhata
                 lblDOBStatus.Text = "";
             }
 
-        
+
+            // Gender validation
+            bool isGenderSelected = cmbGender.SelectedIndex != -1;
+            if (!isGenderSelected)
+            {
+                lblGenderStatus.Text = "⚠️ Please select a gender";
+                lblGenderStatus.ForeColor = ThemeColor.StatusError;            }
+            else
+            {
+                lblGenderStatus.Text = "";
+            }
+
+
+            // Password validation
+            bool isSafePassword = pass.Length >= 6 &&
+                                  pass.Any(char.IsLetter) && 
+                                  pass.Any(char.IsDigit);
             if (!string.IsNullOrEmpty(pass))
             {
                 if (!isSafePassword)
                 {
-                    txtRegPass.BackColor = ThemeColor.InputError;
                     lblPassStatus.ForeColor = ThemeColor.StatusError;
-
-                    if (!hasLength) lblPassStatus.Text = "⚠️ Too Short (Need 6+)";
-                    else if (!hasLetter) lblPassStatus.Text = "⚠️ Need a Letter (A-Z)";
-                    else if (!hasDigit) lblPassStatus.Text = "⚠️ Need a Digit (0-9)";
+                    lblPassStatus.Text = "⚠️ Use 6+ charecters with Letters and Numbers";
                 }
                 else
                 {
-                    txtRegPass.BackColor = ThemeColor.InputSuccess;
                     lblPassStatus.ForeColor = ThemeColor.StatusSuccess;
                     lblPassStatus.Text = "✔️ Strong Password";
                 }
             }
             else
             {
-                txtRegPass.BackColor = ThemeColor.InputBg;
                 lblPassStatus.Text = "";
             }
 
 
+            // Confirm password
+            bool isMatch = (pass == confirm && !string.IsNullOrEmpty(pass));
             if (!string.IsNullOrEmpty(confirm))
             {
                 if (isMatch)
                 {
-                    txtRegConPass.BackColor = ThemeColor.InputSuccess;
                     lblConPassStatus.Text = "✔️ Matched";
                     lblConPassStatus.ForeColor = ThemeColor.StatusSuccess;
                 }
                 else
                 {
-                    txtRegConPass.BackColor = ThemeColor.InputError;
                     lblConPassStatus.Text = "⚠️ Not Matched";
                     lblConPassStatus.ForeColor = ThemeColor.StatusError;
                 }
             }
             else
             {
-                txtRegConPass.BackColor = ThemeColor.InputBg;
                 lblConPassStatus.Text = "";
             }
 
-            // Email validation feedback (add this if you have a label for it)
-            if (!string.IsNullOrEmpty(email) && !isValidEmail)
+
+            //Terms Validation
+            if (!termsAccepted)
             {
-                // Assuming you have lblEmailStatus
-                lblEmailStatus.Text = "⚠️ Invalid email format";
-                lblEmailStatus.ForeColor = ThemeColor.StatusError;
+                lblTermsStatus.Text = "⚠️ You must accept terms";
+                lblTermsStatus.ForeColor = ThemeColor.StatusError;
             }
-            else if (!string.IsNullOrEmpty(email))
+            else
             {
-                lblEmailStatus.Text = "";
+                lblTermsStatus.Text = "";
             }
+
 
             // Enable/disable create button
+            bool allConditionsMet = isNameValid && isUsernameValid && isValidEmail && isGenderSelected &&
+                                    isOfAge && isSafePassword && isMatch && termsAccepted;
+
             btnCreate.Enabled = allConditionsMet;
         }
-
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
@@ -158,9 +213,7 @@ namespace GhorKhata
 
         private void linkLabelCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SignupForm signupForm = new SignupForm();
-            signupForm.Show();
-            this.Hide();
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -266,6 +319,11 @@ namespace GhorKhata
         private void lblDOBStatus_Click(object sender, EventArgs e)
         {
             CheckRegistrationRules();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
