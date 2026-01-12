@@ -27,7 +27,7 @@ namespace GhorKhata
             string pass = txtRegPass.Text;
             string confirm = txtRegConPass.Text;
             bool termsAccepted = chkTerms.Checked;
-            
+
 
             // Name validation
             bool isNameValid = !string.IsNullOrWhiteSpace(name) && name.Length >= 3;
@@ -96,8 +96,8 @@ namespace GhorKhata
             }
 
 
-                // Age validation feedback
-                bool isOfAge = dob.Date <= DateTime.Today.AddYears(-13);
+            // Age validation feedback
+            bool isOfAge = dob.Date <= DateTime.Today.AddYears(-13);
             if (!isOfAge)
             {
                 lblDOBStatus.Text = "⚠️ You must be 13+";
@@ -114,7 +114,8 @@ namespace GhorKhata
             if (!isGenderSelected)
             {
                 lblGenderStatus.Text = "⚠️ Please select a gender";
-                lblGenderStatus.ForeColor = ThemeColor.StatusError;            }
+                lblGenderStatus.ForeColor = ThemeColor.StatusError;
+            }
             else
             {
                 lblGenderStatus.Text = "";
@@ -123,7 +124,7 @@ namespace GhorKhata
 
             // Password validation
             bool isSafePassword = pass.Length >= 6 &&
-                                  pass.Any(char.IsLetter) && 
+                                  pass.Any(char.IsLetter) &&
                                   pass.Any(char.IsDigit);
             if (!string.IsNullOrEmpty(pass))
             {
@@ -322,6 +323,36 @@ namespace GhorKhata
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlForget_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked_2(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVari_Click(object sender, EventArgs e)
         {
 
         }

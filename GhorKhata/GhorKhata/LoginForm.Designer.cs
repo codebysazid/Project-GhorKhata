@@ -71,8 +71,30 @@
             lblRegistration = new Label();
             pnlVarify = new Panel();
             pnlForget = new Panel();
+            lblVari = new Label();
+            lblCodeSend = new Label();
+            lnkvariChange = new LinkLabel();
+            lnlMail = new Label();
+            TxtCode = new TextBox();
+            lnkResend = new LinkLabel();
+            btnVariSub = new Button();
+            lblForget = new Label();
+            lbldontWorry = new Label();
+            txtForMail = new TextBox();
+            btnNext = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            txtForPass = new TextBox();
+            txtForConPass = new TextBox();
+            lblForPass = new Label();
+            lblForConPass = new Label();
+            lblLogUserStatus = new Label();
+            lblLogPassStatus = new Label();
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
+            pnlVarify.SuspendLayout();
+            pnlForget.SuspendLayout();
             SuspendLayout();
             // 
             // lblLogin
@@ -94,7 +116,7 @@
             lblLoginUser.AutoSize = true;
             lblLoginUser.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLoginUser.ForeColor = Color.White;
-            lblLoginUser.Location = new Point(90, 475);
+            lblLoginUser.Location = new Point(90, 418);
             lblLoginUser.Name = "lblLoginUser";
             lblLoginUser.Size = new Size(90, 18);
             lblLoginUser.TabIndex = 1;
@@ -106,7 +128,7 @@
             lblLoginPass.AutoSize = true;
             lblLoginPass.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLoginPass.ForeColor = Color.White;
-            lblLoginPass.Location = new Point(90, 538);
+            lblLoginPass.Location = new Point(90, 485);
             lblLoginPass.Name = "lblLoginPass";
             lblLoginPass.Size = new Size(87, 18);
             lblLoginPass.TabIndex = 2;
@@ -117,7 +139,7 @@
             // 
             txtLoginUser.Anchor = AnchorStyles.None;
             txtLoginUser.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLoginUser.Location = new Point(90, 496);
+            txtLoginUser.Location = new Point(90, 439);
             txtLoginUser.Name = "txtLoginUser";
             txtLoginUser.Size = new Size(300, 29);
             txtLoginUser.TabIndex = 3;
@@ -127,7 +149,7 @@
             // 
             txtLoginPass.Anchor = AnchorStyles.None;
             txtLoginPass.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLoginPass.Location = new Point(90, 559);
+            txtLoginPass.Location = new Point(90, 506);
             txtLoginPass.Name = "txtLoginPass";
             txtLoginPass.PasswordChar = '*';
             txtLoginPass.Size = new Size(300, 29);
@@ -201,7 +223,7 @@
             chkRemember.AutoSize = true;
             chkRemember.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             chkRemember.ForeColor = Color.FromArgb(235, 235, 235);
-            chkRemember.Location = new Point(90, 596);
+            chkRemember.Location = new Point(90, 552);
             chkRemember.Name = "chkRemember";
             chkRemember.Size = new Size(173, 18);
             chkRemember.TabIndex = 11;
@@ -213,6 +235,8 @@
             // 
             pnlLogin.Anchor = AnchorStyles.None;
             pnlLogin.BackColor = Color.FromArgb(60, 63, 65);
+            pnlLogin.Controls.Add(lblLogPassStatus);
+            pnlLogin.Controls.Add(lblLogUserStatus);
             pnlLogin.Controls.Add(lnkForget);
             pnlLogin.Controls.Add(lblLogin);
             pnlLogin.Controls.Add(lbkCreate);
@@ -238,7 +262,7 @@
             lnkForget.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
             lnkForget.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkForget.LinkColor = Color.FromArgb(235, 235, 235);
-            lnkForget.Location = new Point(276, 596);
+            lnkForget.Location = new Point(274, 553);
             lnkForget.Name = "lnkForget";
             lnkForget.Size = new Size(114, 14);
             lnkForget.TabIndex = 12;
@@ -627,19 +651,283 @@
             // 
             pnlVarify.Anchor = AnchorStyles.None;
             pnlVarify.BackColor = Color.FromArgb(80, 83, 85);
-            pnlVarify.Location = new Point(1134, 43);
+            pnlVarify.Controls.Add(btnVariSub);
+            pnlVarify.Controls.Add(lnkResend);
+            pnlVarify.Controls.Add(TxtCode);
+            pnlVarify.Controls.Add(lnlMail);
+            pnlVarify.Controls.Add(lnkvariChange);
+            pnlVarify.Controls.Add(lblCodeSend);
+            pnlVarify.Controls.Add(lblVari);
+            pnlVarify.Location = new Point(1134, 30);
             pnlVarify.Name = "pnlVarify";
-            pnlVarify.Size = new Size(417, 318);
+            pnlVarify.Size = new Size(417, 260);
             pnlVarify.TabIndex = 14;
             // 
             // pnlForget
             // 
             pnlForget.Anchor = AnchorStyles.None;
             pnlForget.BackColor = Color.FromArgb(80, 83, 85);
-            pnlForget.Location = new Point(1134, 434);
+            pnlForget.Controls.Add(label3);
+            pnlForget.Controls.Add(label4);
+            pnlForget.Controls.Add(label5);
+            pnlForget.Controls.Add(txtForPass);
+            pnlForget.Controls.Add(txtForConPass);
+            pnlForget.Controls.Add(lblForPass);
+            pnlForget.Controls.Add(lblForConPass);
+            pnlForget.Controls.Add(btnNext);
+            pnlForget.Controls.Add(txtForMail);
+            pnlForget.Controls.Add(lbldontWorry);
+            pnlForget.Controls.Add(lblForget);
+            pnlForget.Location = new Point(1134, 296);
             pnlForget.Name = "pnlForget";
-            pnlForget.Size = new Size(417, 318);
+            pnlForget.Size = new Size(417, 530);
             pnlForget.TabIndex = 15;
+            pnlForget.Paint += pnlForget_Paint;
+            // 
+            // lblVari
+            // 
+            lblVari.Anchor = AnchorStyles.None;
+            lblVari.AutoSize = true;
+            lblVari.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblVari.ForeColor = Color.White;
+            lblVari.Location = new Point(151, 8);
+            lblVari.Name = "lblVari";
+            lblVari.Size = new Size(114, 22);
+            lblVari.TabIndex = 30;
+            lblVari.Text = "Varification";
+            lblVari.Click += lblVari_Click;
+            // 
+            // lblCodeSend
+            // 
+            lblCodeSend.Anchor = AnchorStyles.None;
+            lblCodeSend.AutoSize = true;
+            lblCodeSend.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCodeSend.ForeColor = Color.White;
+            lblCodeSend.Location = new Point(78, 54);
+            lblCodeSend.Name = "lblCodeSend";
+            lblCodeSend.Size = new Size(273, 54);
+            lblCodeSend.TabIndex = 30;
+            lblCodeSend.Text = "We've sent a 6-digit code to\r\n\r\nPlease enter it below to continue.";
+            lblCodeSend.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lnkvariChange
+            // 
+            lnkvariChange.ActiveLinkColor = Color.White;
+            lnkvariChange.Anchor = AnchorStyles.None;
+            lnkvariChange.AutoSize = true;
+            lnkvariChange.BackColor = Color.Transparent;
+            lnkvariChange.Font = new Font("Arial Rounded MT Bold", 12F);
+            lnkvariChange.LinkBehavior = LinkBehavior.HoverUnderline;
+            lnkvariChange.LinkColor = Color.FromArgb(0, 122, 204);
+            lnkvariChange.Location = new Point(245, 72);
+            lnkvariChange.Name = "lnkvariChange";
+            lnkvariChange.Size = new Size(82, 18);
+            lnkvariChange.TabIndex = 30;
+            lnkvariChange.TabStop = true;
+            lnkvariChange.Text = "(Change)";
+            lnkvariChange.LinkClicked += linkLabel1_LinkClicked_2;
+            // 
+            // lnlMail
+            // 
+            lnlMail.Anchor = AnchorStyles.None;
+            lnlMail.AutoSize = true;
+            lnlMail.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lnlMail.ForeColor = Color.White;
+            lnlMail.Location = new Point(90, 72);
+            lnlMail.Name = "lnlMail";
+            lnlMail.Size = new Size(159, 18);
+            lnlMail.TabIndex = 31;
+            lnlMail.Text = "google@gmail.com";
+            lnlMail.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // TxtCode
+            // 
+            TxtCode.Anchor = AnchorStyles.None;
+            TxtCode.Font = new Font("Arial Rounded MT Bold", 14.25F);
+            TxtCode.Location = new Point(144, 126);
+            TxtCode.Name = "TxtCode";
+            TxtCode.Size = new Size(129, 29);
+            TxtCode.TabIndex = 13;
+            // 
+            // lnkResend
+            // 
+            lnkResend.ActiveLinkColor = Color.White;
+            lnkResend.Anchor = AnchorStyles.None;
+            lnkResend.AutoSize = true;
+            lnkResend.BackColor = Color.Transparent;
+            lnkResend.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            lnkResend.LinkBehavior = LinkBehavior.HoverUnderline;
+            lnkResend.LinkColor = Color.FromArgb(235, 235, 235);
+            lnkResend.Location = new Point(162, 167);
+            lnkResend.Name = "lnkResend";
+            lnkResend.Size = new Size(93, 14);
+            lnkResend.TabIndex = 13;
+            lnkResend.TabStop = true;
+            lnkResend.Text = "Resend Code?";
+            // 
+            // btnVariSub
+            // 
+            btnVariSub.Anchor = AnchorStyles.None;
+            btnVariSub.BackColor = Color.FromArgb(0, 122, 204);
+            btnVariSub.FlatStyle = FlatStyle.Popup;
+            btnVariSub.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVariSub.ForeColor = Color.FromArgb(235, 235, 235);
+            btnVariSub.Location = new Point(124, 203);
+            btnVariSub.Name = "btnVariSub";
+            btnVariSub.Size = new Size(168, 42);
+            btnVariSub.TabIndex = 13;
+            btnVariSub.Text = "Submit";
+            btnVariSub.UseVisualStyleBackColor = false;
+            // 
+            // lblForget
+            // 
+            lblForget.Anchor = AnchorStyles.None;
+            lblForget.AutoSize = true;
+            lblForget.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblForget.ForeColor = Color.White;
+            lblForget.Location = new Point(126, 8);
+            lblForget.Name = "lblForget";
+            lblForget.Size = new Size(165, 22);
+            lblForget.TabIndex = 31;
+            lblForget.Text = "Forget Password";
+            // 
+            // lbldontWorry
+            // 
+            lbldontWorry.Anchor = AnchorStyles.None;
+            lbldontWorry.AutoSize = true;
+            lbldontWorry.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbldontWorry.ForeColor = Color.White;
+            lbldontWorry.Location = new Point(16, 161);
+            lbldontWorry.Name = "lbldontWorry";
+            lbldontWorry.Size = new Size(385, 54);
+            lbldontWorry.TabIndex = 32;
+            lbldontWorry.Text = "Don't worry! We'll help you reset your password\r\n\r\nEnter your email address";
+            lbldontWorry.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // txtForMail
+            // 
+            txtForMail.Anchor = AnchorStyles.None;
+            txtForMail.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtForMail.Location = new Point(58, 228);
+            txtForMail.Name = "txtForMail";
+            txtForMail.Size = new Size(300, 29);
+            txtForMail.TabIndex = 33;
+            // 
+            // btnNext
+            // 
+            btnNext.Anchor = AnchorStyles.None;
+            btnNext.BackColor = Color.FromArgb(40, 167, 69);
+            btnNext.FlatStyle = FlatStyle.Popup;
+            btnNext.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNext.ForeColor = Color.FromArgb(235, 235, 235);
+            btnNext.Location = new Point(124, 474);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(168, 42);
+            btnNext.TabIndex = 34;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += button1_Click;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(137, 263);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 14);
+            label3.TabIndex = 41;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(58, 397);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 14);
+            label4.TabIndex = 40;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(58, 330);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 14);
+            label5.TabIndex = 39;
+            // 
+            // txtForPass
+            // 
+            txtForPass.Anchor = AnchorStyles.None;
+            txtForPass.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtForPass.Location = new Point(58, 298);
+            txtForPass.Name = "txtForPass";
+            txtForPass.PasswordChar = '*';
+            txtForPass.Size = new Size(300, 29);
+            txtForPass.TabIndex = 38;
+            // 
+            // txtForConPass
+            // 
+            txtForConPass.Anchor = AnchorStyles.None;
+            txtForConPass.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtForConPass.Location = new Point(58, 365);
+            txtForConPass.Name = "txtForConPass";
+            txtForConPass.PasswordChar = '*';
+            txtForConPass.Size = new Size(300, 29);
+            txtForConPass.TabIndex = 37;
+            // 
+            // lblForPass
+            // 
+            lblForPass.Anchor = AnchorStyles.None;
+            lblForPass.AutoSize = true;
+            lblForPass.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblForPass.ForeColor = Color.White;
+            lblForPass.Location = new Point(58, 277);
+            lblForPass.Name = "lblForPass";
+            lblForPass.Size = new Size(87, 18);
+            lblForPass.TabIndex = 36;
+            lblForPass.Text = "Password";
+            // 
+            // lblForConPass
+            // 
+            lblForConPass.Anchor = AnchorStyles.None;
+            lblForConPass.AutoSize = true;
+            lblForConPass.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblForConPass.ForeColor = Color.White;
+            lblForConPass.Location = new Point(58, 344);
+            lblForConPass.Name = "lblForConPass";
+            lblForConPass.Size = new Size(153, 18);
+            lblForConPass.TabIndex = 35;
+            lblForConPass.Text = "Confirm Password";
+            // 
+            // lblLogUserStatus
+            // 
+            lblLogUserStatus.Anchor = AnchorStyles.None;
+            lblLogUserStatus.AutoSize = true;
+            lblLogUserStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLogUserStatus.ForeColor = Color.Red;
+            lblLogUserStatus.Location = new Point(90, 471);
+            lblLogUserStatus.Name = "lblLogUserStatus";
+            lblLogUserStatus.Size = new Size(142, 14);
+            lblLogUserStatus.TabIndex = 23;
+            lblLogUserStatus.Text = "Username didn't match";
+            // 
+            // lblLogPassStatus
+            // 
+            lblLogPassStatus.Anchor = AnchorStyles.None;
+            lblLogPassStatus.AutoSize = true;
+            lblLogPassStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLogPassStatus.ForeColor = Color.Red;
+            lblLogPassStatus.Location = new Point(90, 538);
+            lblLogPassStatus.Name = "lblLogPassStatus";
+            lblLogPassStatus.Size = new Size(107, 14);
+            lblLogPassStatus.TabIndex = 24;
+            lblLogPassStatus.Text = "Wrong password";
             // 
             // LoginForm
             // 
@@ -662,6 +950,10 @@
             pnlLogin.PerformLayout();
             pnlRegistration.ResumeLayout(false);
             pnlRegistration.PerformLayout();
+            pnlVarify.ResumeLayout(false);
+            pnlVarify.PerformLayout();
+            pnlForget.ResumeLayout(false);
+            pnlForget.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -712,5 +1004,25 @@
         private Label lblTermsStatus;
         private Panel pnlVarify;
         private Panel pnlForget;
+        private Label lblVari;
+        private Label lblCodeSend;
+        private Label lnlMail;
+        private LinkLabel lnkvariChange;
+        private LinkLabel lnkResend;
+        private TextBox TxtCode;
+        private Button btnVariSub;
+        private Label lbldontWorry;
+        private Label lblForget;
+        private Button btnNext;
+        private TextBox txtForMail;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private TextBox txtForPass;
+        private TextBox txtForConPass;
+        private Label lblForPass;
+        private Label lblForConPass;
+        private Label lblLogPassStatus;
+        private Label lblLogUserStatus;
     }
 }
