@@ -12,9 +12,20 @@ namespace GhorKhata
 {
     public partial class LoginForm : Form
     {
+        int speed = 40;
+        bool movingLeft = false;
         public LoginForm()
         {
             InitializeComponent();
+
+            pnlLogin.Location = new Point((this.ClientSize.Width - pnlLogin.Width) / 2, (this.Height - pnlLogin.Height) / 2);
+
+            pnlRegistration.Location = new Point(this.Width + 180, pnlLogin.Top);
+
+            pnlForget.Visible = false;
+
+            pnlVarify.Visible = false;
+
         }
 
         public void CheckRegistrationRules()
@@ -207,14 +218,16 @@ namespace GhorKhata
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Welcome welcomeForm = new Welcome();
+            WelcomeForm welcomeForm = new WelcomeForm();
             welcomeForm.Show();
             this.Close();
         }
 
         private void linkLabelCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            movingLeft = true;
+            pnlRegistration.Top = pnlLogin.Top;
+            timerSlide.Start();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -360,6 +373,50 @@ namespace GhorKhata
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void timerSlide_Tick(object sender, EventArgs e)
+        {
+            if (movingLeft)
+            {
+                pnlLogin.Left -= speed;
+                pnlRegistration.Left -= speed;
+                int centerX = (this.Width - pnlRegistration.Width) / 2;
+
+                if (pnlRegistration.Left <= centerX)
+                {
+                    timerSlide.Stop();
+                    pnlRegistration.Left = centerX;
+                }
+            }
+            else
+            {
+                pnlLogin.Left += speed;
+                pnlRegistration.Left += speed;
+                int centerX = (this.Width - pnlLogin.Width) / 2;
+
+                if (pnlLogin.Left >= centerX)
+                {
+                    pnlLogin.Left = centerX;
+                    timerSlide.Stop();
+                }
+            }
+        }
+
+        private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            movingLeft = false;
+            timerSlide.Start();
+        }
+
+        private void lnkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pnlForget.Visible = true;
+        }
+
+        private void btnForgX_Click(object sender, EventArgs e)
+        {
+            pnlForget.Visible = false;
         }
     }
 }

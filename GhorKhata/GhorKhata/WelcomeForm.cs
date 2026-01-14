@@ -1,8 +1,8 @@
 namespace GhorKhata
 {
-    public partial class Welcome : Form
+    public partial class WelcomeForm : Form
     {
-        public Welcome()
+        public WelcomeForm()
         {
             InitializeComponent();
 

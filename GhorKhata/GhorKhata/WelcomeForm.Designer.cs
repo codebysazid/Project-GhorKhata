@@ -1,6 +1,6 @@
 ﻿namespace GhorKhata
 {
-    partial class Welcome
+    partial class WelcomeForm
     {
         /// <summary>
         ///  Required designer variable.
