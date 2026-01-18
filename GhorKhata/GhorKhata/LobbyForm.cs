@@ -61,5 +61,25 @@ namespace GhorKhata
         {
 
         }
+
+        private void lblOption1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

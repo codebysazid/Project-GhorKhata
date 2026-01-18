@@ -35,4 +35,5 @@ namespace GhorKhata
         //Font
         public static Font InputFont = new Font("Arial Rounded MT", 12F, FontStyle.Bold);
     }
+
 }

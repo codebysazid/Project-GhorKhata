@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
+using System.Xml;
 
 namespace GhorKhata
 {
@@ -14,6 +17,8 @@ namespace GhorKhata
     {
         int speed = 40;
         bool movingLeft = false;
+        SqlConnection conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GhorKhataDB;Integrated Security=True;TrustServerCertificate=True");
+
         public LoginForm()
         {
             InitializeComponent();
@@ -22,9 +27,9 @@ namespace GhorKhata
 
             pnlRegistration.Location = new Point(this.Width + 180, pnlLogin.Top);
 
-            pnlForget.Visible = false;
+            pnlForget.Location = new Point((this.ClientSize.Width - pnlForget.Width) / 2, (this.Height - pnlForget.Height) / 2);
 
-            pnlVarify.Visible = false;
+            pnlVarify.Location = new Point((this.ClientSize.Width - pnlVarify.Width) / 2, (this.Height - pnlVarify.Height) / 2);
 
         }
 
@@ -41,10 +46,11 @@ namespace GhorKhata
 
 
             // Name validation
-            bool isNameValid = !string.IsNullOrWhiteSpace(name) && name.Length >= 3;
+
+            bool isNameValid = name==null && name.Length >= 3;
             if (!isNameValid)
             {
-                if (string.IsNullOrWhiteSpace(name))
+                if (name==null)
                 {
                     lblNameStatus.Text = "⚠️ Name cannot be empty";
                 }
@@ -105,6 +111,7 @@ namespace GhorKhata
             {
                 lblEmailStatus.Text = "";
             }
+            lnlMail.Text = email;
 
 
             // Age validation feedback
@@ -337,11 +344,45 @@ namespace GhorKhata
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            conn.Open();
+            String queryuser = "SELECT COUNT(*) FROM userdata WHERE username=@username";
+            SqlCommand cmd1 = new SqlCommand(queryuser, conn);
+            cmd1.Parameters.AddWithValue("@username", txtLoginUser.Text);
+            int usercount = (int)cmd1.ExecuteScalar();
+            if (usercount == 0)
+            {
+                lblLogUserStatus.Text = "⚠️ Username does not exist";
+                lblLogPassStatus.Text = "";
+                conn.Close();
+            }
+            else
+            {
+                string querypass = "SELECT COUNT(*) FROM userdata WHERE username=@username AND password=@password";
+                SqlCommand cmd2 = new SqlCommand(querypass, conn);
+                cmd2.Parameters.AddWithValue("@username", txtLoginUser.Text);
+                cmd2.Parameters.AddWithValue("@password", txtLoginPass.Text);
+                int logincount = (int)cmd2.ExecuteScalar();
+                if (logincount == 1)
+                {
+                    lblLogUserStatus.Text = "";
+                    lblLogPassStatus.Text = "";
+                    conn.Close();
+                    LobbyForm lobbyForm = new LobbyForm();
+                    lobbyForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    lblLogPassStatus.Text = "⚠️ Incorrect Password";
+                    lblLogUserStatus.Text = "";
+                    conn.Close();
+                }
+            }
         }
 
         private void pnlForget_Paint(object sender, PaintEventArgs e)
         {
+
 
         }
 
@@ -360,11 +401,6 @@ namespace GhorKhata
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblVari_Click(object sender, EventArgs e)
         {
 
@@ -372,7 +408,7 @@ namespace GhorKhata
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            pnlVarify.Visible = false;
         }
 
         private void timerSlide_Tick(object sender, EventArgs e)
@@ -414,9 +450,48 @@ namespace GhorKhata
             pnlForget.Visible = true;
         }
 
-        private void btnForgX_Click(object sender, EventArgs e)
+        private void btnForgetClose_Click(object sender, EventArgs e)
         {
             pnlForget.Visible = false;
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            pnlVarify.Visible = true;
+        }
+
+        private void lnkResend_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string code = CodeGenerator.SixDigitCode();
+            lblVariCode.Text = code;
+        }
+
+        private void lblCodeSend_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVariSub_Click(object sender, EventArgs e)
+        {
+            if(conn.State != ConnectionState.Open)
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error Connecting DataBase" + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            pnlVarify.Visible = false;
+            movingLeft = false;
+            timerSlide.Start();
+
         }
     }
 }
