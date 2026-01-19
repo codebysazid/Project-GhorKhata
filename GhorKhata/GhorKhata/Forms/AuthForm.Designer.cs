@@ -39,6 +39,7 @@
             lbkCreate = new LinkLabel();
             chkRemember = new CheckBox();
             pnlLogin = new Panel();
+            label1 = new Label();
             lblLogPassStatus = new Label();
             lblLogUserStatus = new Label();
             lnkForget = new LinkLabel();
@@ -93,13 +94,12 @@
             txtForMail = new TextBox();
             lbldontWorry = new Label();
             lblForget = new Label();
-            timerSlide = new System.Windows.Forms.Timer(components);
-            label1 = new Label();
+            WelcomeTimer = new System.Windows.Forms.Timer(components);
             pnlWelcome = new Panel();
-            label2 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             btnEnter = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            label2 = new Label();
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
             pnlVarify.SuspendLayout();
@@ -246,6 +246,15 @@
             pnlLogin.Size = new Size(480, 800);
             pnlLogin.TabIndex = 12;
             pnlLogin.Paint += panel1_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(346, 184);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 25;
+            label1.Text = "label1";
             // 
             // lblLogPassStatus
             // 
@@ -833,7 +842,7 @@
             btnForgX.TabIndex = 42;
             btnForgX.Text = "X";
             btnForgX.UseVisualStyleBackColor = false;
-            btnForgX.Click += btnBack_Click;
+            btnForgX.Click += BtnBack_Click;
             // 
             // label3
             // 
@@ -961,22 +970,14 @@
             lblForget.TabIndex = 31;
             lblForget.Text = "Forget Password";
             // 
-            // timerSlide
+            // WelcomeTimer
             // 
-            timerSlide.Interval = 10;
-            timerSlide.Tick += timerSlide_Tick;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(346, 184);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 25;
-            label1.Text = "label1";
+            WelcomeTimer.Interval = 10;
+            WelcomeTimer.Tick += WelcomeTimer_Tick;
             // 
             // pnlWelcome
             // 
+            pnlWelcome.Anchor = AnchorStyles.None;
             pnlWelcome.BackColor = Color.FromArgb(60, 63, 65);
             pnlWelcome.Controls.Add(btnEnter);
             pnlWelcome.Controls.Add(label7);
@@ -986,43 +987,6 @@
             pnlWelcome.Name = "pnlWelcome";
             pnlWelcome.Size = new Size(900, 800);
             pnlWelcome.TabIndex = 16;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top;
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(235, 235, 235);
-            label2.Location = new Point(160, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(580, 55);
-            label2.TabIndex = 2;
-            label2.Text = "Welcome To GhorKhata";
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top;
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(235, 235, 235);
-            label6.Location = new Point(290, 97);
-            label6.Name = "label6";
-            label6.Size = new Size(320, 22);
-            label6.TabIndex = 3;
-            label6.Text = "Smart Household, Smart Finances";
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Top;
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(235, 235, 235);
-            label7.Location = new Point(179, 438);
-            label7.Name = "label7";
-            label7.Size = new Size(542, 140);
-            label7.TabIndex = 4;
-            label7.Text = "Your complete household financial companion\r\nEasily track expenses\r\nManage meals\r\n Keep everyone in sync\r\nAll in one simple application";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnEnter
             // 
@@ -1037,6 +1001,44 @@
             btnEnter.TabIndex = 18;
             btnEnter.Text = "Enter";
             btnEnter.UseVisualStyleBackColor = false;
+            btnEnter.Click += btnEnter_Click;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(235, 235, 235);
+            label7.Location = new Point(179, 438);
+            label7.Name = "label7";
+            label7.Size = new Size(542, 140);
+            label7.TabIndex = 4;
+            label7.Text = "Your complete household financial companion\r\nEasily track expenses\r\nManage meals\r\n Keep everyone in sync\r\nAll in one simple application";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(235, 235, 235);
+            label6.Location = new Point(290, 97);
+            label6.Name = "label6";
+            label6.Size = new Size(320, 22);
+            label6.TabIndex = 3;
+            label6.Text = "Smart Household, Smart Finances";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(235, 235, 235);
+            label2.Location = new Point(160, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(580, 55);
+            label2.TabIndex = 2;
+            label2.Text = "Welcome To GhorKhata";
             // 
             // AuthForm
             // 
@@ -1136,7 +1138,7 @@
         private Label lblLogUserStatus;
         private Button btnVariX;
         private Button btnForgX;
-        private System.Windows.Forms.Timer timerSlide;
+        private System.Windows.Forms.Timer WelcomeTimer;
         private Label label1;
         private Panel pnlWelcome;
         private Label label2;

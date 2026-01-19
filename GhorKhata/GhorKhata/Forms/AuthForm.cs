@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GhorKhata.Logic.AuthForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,21 @@ namespace GhorKhata
 {
     public partial class AuthForm : Form
     {
-        int speed = 40;
-        bool movingLeft = false;
+
+        private WelcomePanelSlider welcomeSlider;
+
         public AuthForm()
         {
             InitializeComponent();
 
             pnlLogin.Location = new Point((this.ClientSize.Width - pnlLogin.Width) / 2, (this.Height - pnlLogin.Height) / 2);
-
             pnlRegistration.Location = new Point(this.Width + 180, pnlLogin.Top);
+            pnlWelcome.Location = new Point((this.ClientSize.Width - pnlWelcome.Width) / 2, (this.Height - pnlWelcome.Height) / 2);
 
             pnlForget.Visible = false;
-
             pnlVarify.Visible = false;
+
+            welcomeSlider = new WelcomePanelSlider(pnlWelcome, WelcomeTimer, speed: 20);
 
         }
 
@@ -216,18 +219,14 @@ namespace GhorKhata
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            WelcomeForm welcomeForm = new WelcomeForm();
-            welcomeForm.Show();
-            this.Close();
+
         }
 
         private void linkLabelCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            movingLeft = true;
-            pnlRegistration.Top = pnlLogin.Top;
-            timerSlide.Start();
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -375,38 +374,9 @@ namespace GhorKhata
 
         }
 
-        private void timerSlide_Tick(object sender, EventArgs e)
-        {
-            if (movingLeft)
-            {
-                pnlLogin.Left -= speed;
-                pnlRegistration.Left -= speed;
-                int centerX = (this.Width - pnlRegistration.Width) / 2;
-
-                if (pnlRegistration.Left <= centerX)
-                {
-                    timerSlide.Stop();
-                    pnlRegistration.Left = centerX;
-                }
-            }
-            else
-            {
-                pnlLogin.Left += speed;
-                pnlRegistration.Left += speed;
-                int centerX = (this.Width - pnlLogin.Width) / 2;
-
-                if (pnlLogin.Left >= centerX)
-                {
-                    pnlLogin.Left = centerX;
-                    timerSlide.Stop();
-                }
-            }
-        }
-
         private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            movingLeft = false;
-            timerSlide.Start();
+
         }
 
         private void lnkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -417,6 +387,16 @@ namespace GhorKhata
         private void btnForgX_Click(object sender, EventArgs e)
         {
             pnlForget.Visible = false;
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            welcomeSlider.StartSliding();
+        }
+
+        private void WelcomeTimer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
