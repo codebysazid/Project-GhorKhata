@@ -1,6 +1,6 @@
 ﻿namespace GhorKhata
 {
-    partial class LoginForm
+    partial class AuthForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,6 @@
             txtLoginPass = new TextBox();
             btnLogin = new Button();
             lblNewtoGhorKhata = new Label();
-            btnBack = new Button();
             lbkCreate = new LinkLabel();
             chkRemember = new CheckBox();
             pnlLogin = new Panel();
@@ -95,10 +94,17 @@
             lbldontWorry = new Label();
             lblForget = new Label();
             timerSlide = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
+            pnlWelcome = new Panel();
+            label2 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            btnEnter = new Button();
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
             pnlVarify.SuspendLayout();
             pnlForget.SuspendLayout();
+            pnlWelcome.SuspendLayout();
             SuspendLayout();
             // 
             // lblLogin
@@ -187,23 +193,6 @@
             lblNewtoGhorKhata.Text = "New to GhorKhata?              Account\r\n";
             lblNewtoGhorKhata.Click += labelNewToGhorKhata_Click;
             // 
-            // btnBack
-            // 
-            btnBack.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnBack.BackColor = Color.FromArgb(60, 63, 65);
-            btnBack.FlatStyle = FlatStyle.Popup;
-            btnBack.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBack.ForeColor = Color.FromArgb(235, 235, 235);
-            btnBack.Location = new Point(30, 30);
-            btnBack.Margin = new Padding(0);
-            btnBack.Name = "btnBack";
-            btnBack.RightToLeft = RightToLeft.Yes;
-            btnBack.Size = new Size(50, 30);
-            btnBack.TabIndex = 0;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
-            // 
             // lbkCreate
             // 
             lbkCreate.ActiveLinkColor = Color.White;
@@ -239,6 +228,7 @@
             // 
             pnlLogin.Anchor = AnchorStyles.None;
             pnlLogin.BackColor = Color.FromArgb(60, 63, 65);
+            pnlLogin.Controls.Add(label1);
             pnlLogin.Controls.Add(lblLogPassStatus);
             pnlLogin.Controls.Add(lblLogUserStatus);
             pnlLogin.Controls.Add(lnkForget);
@@ -251,7 +241,7 @@
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(lblLoginPass);
             pnlLogin.Controls.Add(txtLoginPass);
-            pnlLogin.Location = new Point(153, 30);
+            pnlLogin.Location = new Point(1519, 733);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(480, 800);
             pnlLogin.TabIndex = 12;
@@ -330,7 +320,7 @@
             pnlRegistration.Controls.Add(txtRegName);
             pnlRegistration.Controls.Add(lblRegName);
             pnlRegistration.Controls.Add(lblRegistration);
-            pnlRegistration.Location = new Point(638, 30);
+            pnlRegistration.Location = new Point(1028, 30);
             pnlRegistration.Name = "pnlRegistration";
             pnlRegistration.Size = new Size(480, 800);
             pnlRegistration.TabIndex = 13;
@@ -342,7 +332,7 @@
             lblTermsStatus.AutoSize = true;
             lblTermsStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTermsStatus.ForeColor = Color.Red;
-            lblTermsStatus.Location = new Point(90, 574);
+            lblTermsStatus.Location = new Point(90, 618);
             lblTermsStatus.Name = "lblTermsStatus";
             lblTermsStatus.Size = new Size(0, 14);
             lblTermsStatus.TabIndex = 29;
@@ -353,7 +343,7 @@
             lblGenderStatus.AutoSize = true;
             lblGenderStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGenderStatus.ForeColor = Color.Red;
-            lblGenderStatus.Location = new Point(169, 404);
+            lblGenderStatus.Location = new Point(169, 446);
             lblGenderStatus.Name = "lblGenderStatus";
             lblGenderStatus.Size = new Size(0, 14);
             lblGenderStatus.TabIndex = 28;
@@ -364,7 +354,7 @@
             lblDOBStatus.AutoSize = true;
             lblDOBStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDOBStatus.ForeColor = Color.Red;
-            lblDOBStatus.Location = new Point(209, 337);
+            lblDOBStatus.Location = new Point(209, 379);
             lblDOBStatus.Name = "lblDOBStatus";
             lblDOBStatus.Size = new Size(0, 14);
             lblDOBStatus.TabIndex = 27;
@@ -376,7 +366,7 @@
             lblEmailStatus.AutoSize = true;
             lblEmailStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmailStatus.ForeColor = Color.Red;
-            lblEmailStatus.Location = new Point(90, 270);
+            lblEmailStatus.Location = new Point(90, 312);
             lblEmailStatus.Name = "lblEmailStatus";
             lblEmailStatus.Size = new Size(0, 14);
             lblEmailStatus.TabIndex = 26;
@@ -388,7 +378,7 @@
             lblRegUserStatus.AutoSize = true;
             lblRegUserStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegUserStatus.ForeColor = Color.Red;
-            lblRegUserStatus.Location = new Point(90, 203);
+            lblRegUserStatus.Location = new Point(90, 245);
             lblRegUserStatus.Name = "lblRegUserStatus";
             lblRegUserStatus.Size = new Size(0, 14);
             lblRegUserStatus.TabIndex = 25;
@@ -400,7 +390,7 @@
             lblNameStatus.AutoSize = true;
             lblNameStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNameStatus.ForeColor = Color.Red;
-            lblNameStatus.Location = new Point(90, 136);
+            lblNameStatus.Location = new Point(90, 178);
             lblNameStatus.Name = "lblNameStatus";
             lblNameStatus.Size = new Size(0, 14);
             lblNameStatus.TabIndex = 24;
@@ -412,7 +402,7 @@
             lblConPassStatus.AutoSize = true;
             lblConPassStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblConPassStatus.ForeColor = Color.Red;
-            lblConPassStatus.Location = new Point(90, 538);
+            lblConPassStatus.Location = new Point(90, 580);
             lblConPassStatus.Name = "lblConPassStatus";
             lblConPassStatus.Size = new Size(0, 14);
             lblConPassStatus.TabIndex = 23;
@@ -423,7 +413,7 @@
             lblPassStatus.AutoSize = true;
             lblPassStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassStatus.ForeColor = Color.Red;
-            lblPassStatus.Location = new Point(90, 471);
+            lblPassStatus.Location = new Point(90, 513);
             lblPassStatus.Name = "lblPassStatus";
             lblPassStatus.Size = new Size(0, 14);
             lblPassStatus.TabIndex = 22;
@@ -466,7 +456,7 @@
             lnkTerms.Font = new Font("Arial Rounded MT Bold", 9F);
             lnkTerms.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkTerms.LinkColor = Color.DodgerBlue;
-            lnkTerms.Location = new Point(185, 553);
+            lnkTerms.Location = new Point(185, 595);
             lnkTerms.Name = "lnkTerms";
             lnkTerms.Size = new Size(132, 14);
             lnkTerms.TabIndex = 19;
@@ -480,7 +470,7 @@
             chkTerms.AutoSize = true;
             chkTerms.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             chkTerms.ForeColor = Color.FromArgb(235, 235, 235);
-            chkTerms.Location = new Point(90, 552);
+            chkTerms.Location = new Point(90, 594);
             chkTerms.Name = "chkTerms";
             chkTerms.Size = new Size(102, 18);
             chkTerms.TabIndex = 18;
@@ -506,7 +496,7 @@
             // 
             txtRegPass.Anchor = AnchorStyles.None;
             txtRegPass.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegPass.Location = new Point(90, 439);
+            txtRegPass.Location = new Point(90, 481);
             txtRegPass.Name = "txtRegPass";
             txtRegPass.PasswordChar = '*';
             txtRegPass.Size = new Size(300, 29);
@@ -517,7 +507,7 @@
             // 
             txtRegConPass.Anchor = AnchorStyles.None;
             txtRegConPass.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegConPass.Location = new Point(90, 506);
+            txtRegConPass.Location = new Point(90, 548);
             txtRegConPass.Name = "txtRegConPass";
             txtRegConPass.PasswordChar = '*';
             txtRegConPass.Size = new Size(300, 29);
@@ -530,7 +520,7 @@
             lblRegPass.AutoSize = true;
             lblRegPass.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegPass.ForeColor = Color.White;
-            lblRegPass.Location = new Point(90, 418);
+            lblRegPass.Location = new Point(90, 460);
             lblRegPass.Name = "lblRegPass";
             lblRegPass.Size = new Size(87, 18);
             lblRegPass.TabIndex = 14;
@@ -542,7 +532,7 @@
             lblRegConPass.AutoSize = true;
             lblRegConPass.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegConPass.ForeColor = Color.White;
-            lblRegConPass.Location = new Point(90, 485);
+            lblRegConPass.Location = new Point(90, 527);
             lblRegConPass.Name = "lblRegConPass";
             lblRegConPass.Size = new Size(153, 18);
             lblRegConPass.TabIndex = 13;
@@ -555,7 +545,7 @@
             lblGender.AutoSize = true;
             lblGender.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGender.ForeColor = Color.White;
-            lblGender.Location = new Point(90, 376);
+            lblGender.Location = new Point(90, 418);
             lblGender.Name = "lblGender";
             lblGender.Size = new Size(73, 18);
             lblGender.TabIndex = 12;
@@ -568,7 +558,7 @@
             cmbGender.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbGender.FormattingEnabled = true;
             cmbGender.Items.AddRange(new object[] { "Male", "Female", "Other" });
-            cmbGender.Location = new Point(169, 372);
+            cmbGender.Location = new Point(169, 414);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(221, 26);
             cmbGender.TabIndex = 11;
@@ -580,7 +570,7 @@
             lblDOB.AutoSize = true;
             lblDOB.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDOB.ForeColor = Color.White;
-            lblDOB.Location = new Point(90, 311);
+            lblDOB.Location = new Point(90, 353);
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new Size(113, 18);
             lblDOB.TabIndex = 10;
@@ -592,7 +582,7 @@
             dtpDOB.CustomFormat = "d MMM yyyy";
             dtpDOB.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpDOB.Format = DateTimePickerFormat.Custom;
-            dtpDOB.Location = new Point(209, 305);
+            dtpDOB.Location = new Point(209, 347);
             dtpDOB.Name = "dtpDOB";
             dtpDOB.Size = new Size(181, 26);
             dtpDOB.TabIndex = 9;
@@ -602,7 +592,7 @@
             // 
             txtRegEmail.Anchor = AnchorStyles.None;
             txtRegEmail.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegEmail.Location = new Point(90, 238);
+            txtRegEmail.Location = new Point(90, 280);
             txtRegEmail.Name = "txtRegEmail";
             txtRegEmail.Size = new Size(300, 29);
             txtRegEmail.TabIndex = 8;
@@ -614,7 +604,7 @@
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmail.ForeColor = Color.White;
-            lblEmail.Location = new Point(90, 217);
+            lblEmail.Location = new Point(90, 259);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(51, 18);
             lblEmail.TabIndex = 7;
@@ -624,7 +614,7 @@
             // 
             txtRegUser.Anchor = AnchorStyles.None;
             txtRegUser.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegUser.Location = new Point(90, 171);
+            txtRegUser.Location = new Point(90, 213);
             txtRegUser.Name = "txtRegUser";
             txtRegUser.Size = new Size(300, 29);
             txtRegUser.TabIndex = 6;
@@ -636,7 +626,7 @@
             lblRegUser.AutoSize = true;
             lblRegUser.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegUser.ForeColor = Color.White;
-            lblRegUser.Location = new Point(90, 150);
+            lblRegUser.Location = new Point(90, 192);
             lblRegUser.Name = "lblRegUser";
             lblRegUser.Size = new Size(90, 18);
             lblRegUser.TabIndex = 5;
@@ -646,7 +636,7 @@
             // 
             txtRegName.Anchor = AnchorStyles.None;
             txtRegName.Font = new Font("Arial Narrow", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegName.Location = new Point(90, 104);
+            txtRegName.Location = new Point(90, 146);
             txtRegName.Name = "txtRegName";
             txtRegName.Size = new Size(300, 29);
             txtRegName.TabIndex = 4;
@@ -658,7 +648,7 @@
             lblRegName.AutoSize = true;
             lblRegName.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegName.ForeColor = Color.White;
-            lblRegName.Location = new Point(90, 83);
+            lblRegName.Location = new Point(90, 125);
             lblRegName.Name = "lblRegName";
             lblRegName.Size = new Size(54, 18);
             lblRegName.TabIndex = 2;
@@ -670,7 +660,7 @@
             lblRegistration.AutoSize = true;
             lblRegistration.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRegistration.ForeColor = Color.FromArgb(235, 235, 235);
-            lblRegistration.Location = new Point(101, 13);
+            lblRegistration.Location = new Point(101, 30);
             lblRegistration.Name = "lblRegistration";
             lblRegistration.Size = new Size(295, 55);
             lblRegistration.TabIndex = 1;
@@ -689,7 +679,7 @@
             pnlVarify.Controls.Add(lnkvariChange);
             pnlVarify.Controls.Add(lblCodeSend);
             pnlVarify.Controls.Add(lblVari);
-            pnlVarify.Location = new Point(1134, 30);
+            pnlVarify.Location = new Point(1543, 754);
             pnlVarify.Name = "pnlVarify";
             pnlVarify.Size = new Size(417, 260);
             pnlVarify.TabIndex = 14;
@@ -822,7 +812,7 @@
             pnlForget.Controls.Add(txtForMail);
             pnlForget.Controls.Add(lbldontWorry);
             pnlForget.Controls.Add(lblForget);
-            pnlForget.Location = new Point(1134, 300);
+            pnlForget.Location = new Point(1547, 754);
             pnlForget.Name = "pnlForget";
             pnlForget.Size = new Size(417, 530);
             pnlForget.TabIndex = 15;
@@ -976,18 +966,90 @@
             timerSlide.Interval = 10;
             timerSlide.Tick += timerSlide_Tick;
             // 
-            // LoginForm
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(346, 184);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 25;
+            label1.Text = "label1";
+            // 
+            // pnlWelcome
+            // 
+            pnlWelcome.BackColor = Color.FromArgb(60, 63, 65);
+            pnlWelcome.Controls.Add(btnEnter);
+            pnlWelcome.Controls.Add(label7);
+            pnlWelcome.Controls.Add(label6);
+            pnlWelcome.Controls.Add(label2);
+            pnlWelcome.Location = new Point(107, 30);
+            pnlWelcome.Name = "pnlWelcome";
+            pnlWelcome.Size = new Size(900, 800);
+            pnlWelcome.TabIndex = 16;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(235, 235, 235);
+            label2.Location = new Point(160, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(580, 55);
+            label2.TabIndex = 2;
+            label2.Text = "Welcome To GhorKhata";
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(235, 235, 235);
+            label6.Location = new Point(290, 97);
+            label6.Name = "label6";
+            label6.Size = new Size(320, 22);
+            label6.TabIndex = 3;
+            label6.Text = "Smart Household, Smart Finances";
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(235, 235, 235);
+            label7.Location = new Point(179, 438);
+            label7.Name = "label7";
+            label7.Size = new Size(542, 140);
+            label7.TabIndex = 4;
+            label7.Text = "Your complete household financial companion\r\nEasily track expenses\r\nManage meals\r\n Keep everyone in sync\r\nAll in one simple application";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnEnter
+            // 
+            btnEnter.Anchor = AnchorStyles.None;
+            btnEnter.BackColor = Color.FromArgb(40, 167, 69);
+            btnEnter.FlatStyle = FlatStyle.Popup;
+            btnEnter.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEnter.ForeColor = Color.FromArgb(235, 235, 235);
+            btnEnter.Location = new Point(330, 630);
+            btnEnter.Name = "btnEnter";
+            btnEnter.Size = new Size(240, 60);
+            btnEnter.TabIndex = 18;
+            btnEnter.Text = "Enter";
+            btnEnter.UseVisualStyleBackColor = false;
+            // 
+            // AuthForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
             ClientSize = new Size(1584, 861);
+            Controls.Add(pnlWelcome);
             Controls.Add(pnlForget);
             Controls.Add(pnlVarify);
             Controls.Add(pnlRegistration);
             Controls.Add(pnlLogin);
-            Controls.Add(btnBack);
-            Name = "LoginForm";
+            Name = "AuthForm";
             Padding = new Padding(3, 0, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
@@ -1001,6 +1063,8 @@
             pnlVarify.PerformLayout();
             pnlForget.ResumeLayout(false);
             pnlForget.PerformLayout();
+            pnlWelcome.ResumeLayout(false);
+            pnlWelcome.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1013,7 +1077,6 @@
         private TextBox txtLoginPass;
         private Button btnLogin;
         private Label lblNewtoGhorKhata;
-        private Button btnBack;
         private LinkLabel lbkCreate;
         private CheckBox chkRemember;
         private Panel pnlLogin;
@@ -1074,5 +1137,11 @@
         private Button btnVariX;
         private Button btnForgX;
         private System.Windows.Forms.Timer timerSlide;
+        private Label label1;
+        private Panel pnlWelcome;
+        private Label label2;
+        private Label label7;
+        private Label label6;
+        private Button btnEnter;
     }
 }

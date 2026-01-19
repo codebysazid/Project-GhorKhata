@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient; // <--- MAKE SURE THIS SAYS SYSTEM
+using System.Data.SqlClient;
 
-namespace GhorKhata
+namespace GhorKhata.Data
 {
     public static class DatabaseConfig
     {

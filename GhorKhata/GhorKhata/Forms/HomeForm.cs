@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GhorKhata
 {
-    public partial class LobbyForm : Form
+    public partial class HomeForm : Form
     {
-        public LobbyForm()
+        public HomeForm()
         {
             InitializeComponent();
         }

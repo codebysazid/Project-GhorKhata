@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace GhorKhata
 {
-    public partial class LoginForm : Form
+    public partial class AuthForm : Form
     {
         int speed = 40;
         bool movingLeft = false;
-        public LoginForm()
+        public AuthForm()
         {
             InitializeComponent();
 

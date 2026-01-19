@@ -1,6 +1,6 @@
 ﻿namespace GhorKhata
 {
-    partial class LobbyForm
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             pnlProfile = new Panel();
             button6 = new Button();
             button5 = new Button();
