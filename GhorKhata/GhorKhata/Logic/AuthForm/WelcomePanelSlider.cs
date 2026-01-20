@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GhorKhata.Logic.AuthForm
 {
     internal class WelcomePanelSlider
     {
         private System.Windows.Forms.Timer welcomeTimer;
         private Panel welcomePanel;
-        private int Speed;
-        private int axisY;
+        private int Speed = 40;
         private bool Sliding = false;
 
-        public WelcomePanelSlider(Panel panel, System.Windows.Forms.Timer timer, int speed )
+        public WelcomePanelSlider(Panel panel, System.Windows.Forms.Timer timer, int speed)
         {
             welcomePanel = panel;
             welcomeTimer = timer;
@@ -27,18 +27,16 @@ namespace GhorKhata.Logic.AuthForm
         public void StartSliding()
         {
             Sliding = true;
-            axisY = welcomePanel.Height;
             welcomeTimer.Start();
         }
 
         public void StopSliding()
         {
-
             Sliding = false;
             welcomeTimer.Stop();
         }
 
-        private void WelcomeTimer_Tick(object? sender, EventArgs e)
+        private void WelcomeTimer_Tick(object sender, EventArgs e)
         {
             welcomePanel.Top -= Speed;
 
@@ -48,6 +46,10 @@ namespace GhorKhata.Logic.AuthForm
                 welcomePanel.Visible = false;
             }
         }
-    }
 
+        public void Dispose()
+        {
+            welcomeTimer.Tick -= WelcomeTimer_Tick;
+        }
+    }
 }

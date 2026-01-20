@@ -94,12 +94,13 @@
             txtForMail = new TextBox();
             lbldontWorry = new Label();
             lblForget = new Label();
-            WelcomeTimer = new System.Windows.Forms.Timer(components);
             pnlWelcome = new Panel();
             btnEnter = new Button();
             label7 = new Label();
             label6 = new Label();
             label2 = new Label();
+            LoginRegTimer = new System.Windows.Forms.Timer(components);
+            WelcomeTimer = new System.Windows.Forms.Timer(components);
             pnlLogin.SuspendLayout();
             pnlRegistration.SuspendLayout();
             pnlVarify.SuspendLayout();
@@ -241,7 +242,7 @@
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(lblLoginPass);
             pnlLogin.Controls.Add(txtLoginPass);
-            pnlLogin.Location = new Point(1519, 733);
+            pnlLogin.Location = new Point(86, 3);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(480, 800);
             pnlLogin.TabIndex = 12;
@@ -255,6 +256,7 @@
             label1.Size = new Size(38, 15);
             label1.TabIndex = 25;
             label1.Text = "label1";
+            label1.Click += label1_Click;
             // 
             // lblLogPassStatus
             // 
@@ -970,11 +972,6 @@
             lblForget.TabIndex = 31;
             lblForget.Text = "Forget Password";
             // 
-            // WelcomeTimer
-            // 
-            WelcomeTimer.Interval = 10;
-            WelcomeTimer.Tick += WelcomeTimer_Tick;
-            // 
             // pnlWelcome
             // 
             pnlWelcome.Anchor = AnchorStyles.None;
@@ -983,7 +980,7 @@
             pnlWelcome.Controls.Add(label7);
             pnlWelcome.Controls.Add(label6);
             pnlWelcome.Controls.Add(label2);
-            pnlWelcome.Location = new Point(107, 30);
+            pnlWelcome.Location = new Point(86, 840);
             pnlWelcome.Name = "pnlWelcome";
             pnlWelcome.Size = new Size(900, 800);
             pnlWelcome.TabIndex = 16;
@@ -1039,6 +1036,15 @@
             label2.Size = new Size(580, 55);
             label2.TabIndex = 2;
             label2.Text = "Welcome To GhorKhata";
+            // 
+            // LoginRegTimer
+            // 
+            LoginRegTimer.Interval = 1;
+            // 
+            // WelcomeTimer
+            // 
+            WelcomeTimer.Interval = 1;
+            WelcomeTimer.Tick += WelcomeTimer_Tick;
             // 
             // AuthForm
             // 
@@ -1138,12 +1144,13 @@
         private Label lblLogUserStatus;
         private Button btnVariX;
         private Button btnForgX;
-        private System.Windows.Forms.Timer WelcomeTimer;
         private Label label1;
         private Panel pnlWelcome;
         private Label label2;
         private Label label7;
         private Label label6;
         private Button btnEnter;
+        private System.Windows.Forms.Timer LoginRegTimer;
+        private System.Windows.Forms.Timer WelcomeTimer;
     }
 }
