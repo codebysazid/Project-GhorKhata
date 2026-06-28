@@ -38,17 +38,17 @@
             lblNewtoGhorKhata = new Label();
             lbkCreate = new LinkLabel();
             chkRemember = new CheckBox();
-            pnlLogin = new Panel();
+            LoginPanel = new Panel();
             label1 = new Label();
             lblLogPassStatus = new Label();
             lblLogUserStatus = new Label();
             lnkForget = new LinkLabel();
-            pnlRegistration = new Panel();
+            RegistrationPanel = new Panel();
             lblTermsStatus = new Label();
             lblGenderStatus = new Label();
             lblDOBStatus = new Label();
             lblEmailStatus = new Label();
-            lblRegUserStatus = new Label();
+            lblRegPhoneStatus = new Label();
             lblNameStatus = new Label();
             lblConPassStatus = new Label();
             lblPassStatus = new Label();
@@ -72,7 +72,12 @@
             txtRegName = new TextBox();
             lblRegName = new Label();
             lblRegistration = new Label();
-            pnlVarify = new Panel();
+            WelcomePanel = new Panel();
+            btnEnter = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            label2 = new Label();
+            VarificationPanel = new Panel();
             btnVariX = new Button();
             btnVariSub = new Button();
             lnkResend = new LinkLabel();
@@ -81,8 +86,8 @@
             lnkvariChange = new LinkLabel();
             lblCodeSend = new Label();
             lblVari = new Label();
-            pnlForget = new Panel();
-            btnForgX = new Button();
+            ForgetPanel = new Panel();
+            btnForgetPanelClose = new Button();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -94,18 +99,13 @@
             txtForMail = new TextBox();
             lbldontWorry = new Label();
             lblForget = new Label();
-            pnlWelcome = new Panel();
-            btnEnter = new Button();
-            label7 = new Label();
-            label6 = new Label();
-            label2 = new Label();
             LoginRegTimer = new System.Windows.Forms.Timer(components);
             WelcomeTimer = new System.Windows.Forms.Timer(components);
-            pnlLogin.SuspendLayout();
-            pnlRegistration.SuspendLayout();
-            pnlVarify.SuspendLayout();
-            pnlForget.SuspendLayout();
-            pnlWelcome.SuspendLayout();
+            LoginPanel.SuspendLayout();
+            RegistrationPanel.SuspendLayout();
+            WelcomePanel.SuspendLayout();
+            VarificationPanel.SuspendLayout();
+            ForgetPanel.SuspendLayout();
             SuspendLayout();
             // 
             // lblLogin
@@ -129,9 +129,9 @@
             lblLoginUser.ForeColor = Color.White;
             lblLoginUser.Location = new Point(90, 418);
             lblLoginUser.Name = "lblLoginUser";
-            lblLoginUser.Size = new Size(90, 18);
+            lblLoginUser.Size = new Size(106, 18);
             lblLoginUser.TabIndex = 1;
-            lblLoginUser.Text = "Username";
+            lblLoginUser.Text = "Email/Phone";
             // 
             // lblLoginPass
             // 
@@ -189,9 +189,9 @@
             lblNewtoGhorKhata.ForeColor = Color.White;
             lblNewtoGhorKhata.Location = new Point(73, 724);
             lblNewtoGhorKhata.Name = "lblNewtoGhorKhata";
-            lblNewtoGhorKhata.Size = new Size(334, 22);
+            lblNewtoGhorKhata.Size = new Size(188, 22);
             lblNewtoGhorKhata.TabIndex = 7;
-            lblNewtoGhorKhata.Text = "New to GhorKhata?              Account\r\n";
+            lblNewtoGhorKhata.Text = "New to GhorKhata?\r\n";
             lblNewtoGhorKhata.Click += labelNewToGhorKhata_Click;
             // 
             // lbkCreate
@@ -205,10 +205,10 @@
             lbkCreate.LinkColor = Color.FromArgb(40, 167, 69);
             lbkCreate.Location = new Point(254, 724);
             lbkCreate.Name = "lbkCreate";
-            lbkCreate.Size = new Size(72, 22);
+            lbkCreate.Size = new Size(153, 22);
             lbkCreate.TabIndex = 10;
             lbkCreate.TabStop = true;
-            lbkCreate.Text = "Create\r\n";
+            lbkCreate.Text = "Create Account";
             lbkCreate.LinkClicked += linkLabelCreate_LinkClicked;
             // 
             // chkRemember
@@ -225,37 +225,36 @@
             chkRemember.UseVisualStyleBackColor = true;
             chkRemember.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // pnlLogin
+            // LoginPanel
             // 
-            pnlLogin.Anchor = AnchorStyles.None;
-            pnlLogin.BackColor = Color.FromArgb(60, 63, 65);
-            pnlLogin.Controls.Add(label1);
-            pnlLogin.Controls.Add(lblLogPassStatus);
-            pnlLogin.Controls.Add(lblLogUserStatus);
-            pnlLogin.Controls.Add(lnkForget);
-            pnlLogin.Controls.Add(lblLogin);
-            pnlLogin.Controls.Add(lbkCreate);
-            pnlLogin.Controls.Add(chkRemember);
-            pnlLogin.Controls.Add(lblLoginUser);
-            pnlLogin.Controls.Add(lblNewtoGhorKhata);
-            pnlLogin.Controls.Add(txtLoginUser);
-            pnlLogin.Controls.Add(btnLogin);
-            pnlLogin.Controls.Add(lblLoginPass);
-            pnlLogin.Controls.Add(txtLoginPass);
-            pnlLogin.Location = new Point(86, 3);
-            pnlLogin.Name = "pnlLogin";
-            pnlLogin.Size = new Size(480, 800);
-            pnlLogin.TabIndex = 12;
-            pnlLogin.Paint += panel1_Paint;
+            LoginPanel.Anchor = AnchorStyles.None;
+            LoginPanel.BackColor = Color.FromArgb(60, 63, 65);
+            LoginPanel.Controls.Add(label1);
+            LoginPanel.Controls.Add(lblLogPassStatus);
+            LoginPanel.Controls.Add(lblLogUserStatus);
+            LoginPanel.Controls.Add(lnkForget);
+            LoginPanel.Controls.Add(lblLogin);
+            LoginPanel.Controls.Add(lbkCreate);
+            LoginPanel.Controls.Add(chkRemember);
+            LoginPanel.Controls.Add(lblLoginUser);
+            LoginPanel.Controls.Add(lblNewtoGhorKhata);
+            LoginPanel.Controls.Add(txtLoginUser);
+            LoginPanel.Controls.Add(btnLogin);
+            LoginPanel.Controls.Add(lblLoginPass);
+            LoginPanel.Controls.Add(txtLoginPass);
+            LoginPanel.Location = new Point(6, 3);
+            LoginPanel.Name = "LoginPanel";
+            LoginPanel.Size = new Size(480, 800);
+            LoginPanel.TabIndex = 12;
+            LoginPanel.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(346, 184);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(0, 15);
             label1.TabIndex = 25;
-            label1.Text = "label1";
             label1.Click += label1_Click;
             // 
             // lblLogPassStatus
@@ -299,43 +298,43 @@
             lnkForget.Text = "Forget Password?";
             lnkForget.LinkClicked += lnkForget_LinkClicked;
             // 
-            // pnlRegistration
+            // RegistrationPanel
             // 
-            pnlRegistration.Anchor = AnchorStyles.None;
-            pnlRegistration.BackColor = Color.FromArgb(60, 63, 65);
-            pnlRegistration.Controls.Add(lblTermsStatus);
-            pnlRegistration.Controls.Add(lblGenderStatus);
-            pnlRegistration.Controls.Add(lblDOBStatus);
-            pnlRegistration.Controls.Add(lblEmailStatus);
-            pnlRegistration.Controls.Add(lblRegUserStatus);
-            pnlRegistration.Controls.Add(lblNameStatus);
-            pnlRegistration.Controls.Add(lblConPassStatus);
-            pnlRegistration.Controls.Add(lblPassStatus);
-            pnlRegistration.Controls.Add(lnkLogin);
-            pnlRegistration.Controls.Add(lblAlreadyhave);
-            pnlRegistration.Controls.Add(lnkTerms);
-            pnlRegistration.Controls.Add(chkTerms);
-            pnlRegistration.Controls.Add(btnCreate);
-            pnlRegistration.Controls.Add(txtRegPass);
-            pnlRegistration.Controls.Add(txtRegConPass);
-            pnlRegistration.Controls.Add(lblRegPass);
-            pnlRegistration.Controls.Add(lblRegConPass);
-            pnlRegistration.Controls.Add(lblGender);
-            pnlRegistration.Controls.Add(cmbGender);
-            pnlRegistration.Controls.Add(lblDOB);
-            pnlRegistration.Controls.Add(dtpDOB);
-            pnlRegistration.Controls.Add(txtRegEmail);
-            pnlRegistration.Controls.Add(lblEmail);
-            pnlRegistration.Controls.Add(txtRegUser);
-            pnlRegistration.Controls.Add(lblRegUser);
-            pnlRegistration.Controls.Add(txtRegName);
-            pnlRegistration.Controls.Add(lblRegName);
-            pnlRegistration.Controls.Add(lblRegistration);
-            pnlRegistration.Location = new Point(1028, 30);
-            pnlRegistration.Name = "pnlRegistration";
-            pnlRegistration.Size = new Size(480, 800);
-            pnlRegistration.TabIndex = 13;
-            pnlRegistration.Paint += panel2_Paint;
+            RegistrationPanel.Anchor = AnchorStyles.None;
+            RegistrationPanel.BackColor = Color.FromArgb(60, 63, 65);
+            RegistrationPanel.Controls.Add(lblTermsStatus);
+            RegistrationPanel.Controls.Add(lblGenderStatus);
+            RegistrationPanel.Controls.Add(lblDOBStatus);
+            RegistrationPanel.Controls.Add(lblEmailStatus);
+            RegistrationPanel.Controls.Add(lblRegPhoneStatus);
+            RegistrationPanel.Controls.Add(lblNameStatus);
+            RegistrationPanel.Controls.Add(lblConPassStatus);
+            RegistrationPanel.Controls.Add(lblPassStatus);
+            RegistrationPanel.Controls.Add(lnkLogin);
+            RegistrationPanel.Controls.Add(lblAlreadyhave);
+            RegistrationPanel.Controls.Add(lnkTerms);
+            RegistrationPanel.Controls.Add(chkTerms);
+            RegistrationPanel.Controls.Add(btnCreate);
+            RegistrationPanel.Controls.Add(txtRegPass);
+            RegistrationPanel.Controls.Add(txtRegConPass);
+            RegistrationPanel.Controls.Add(lblRegPass);
+            RegistrationPanel.Controls.Add(lblRegConPass);
+            RegistrationPanel.Controls.Add(lblGender);
+            RegistrationPanel.Controls.Add(cmbGender);
+            RegistrationPanel.Controls.Add(lblDOB);
+            RegistrationPanel.Controls.Add(dtpDOB);
+            RegistrationPanel.Controls.Add(txtRegEmail);
+            RegistrationPanel.Controls.Add(lblEmail);
+            RegistrationPanel.Controls.Add(txtRegUser);
+            RegistrationPanel.Controls.Add(lblRegUser);
+            RegistrationPanel.Controls.Add(txtRegName);
+            RegistrationPanel.Controls.Add(lblRegName);
+            RegistrationPanel.Controls.Add(lblRegistration);
+            RegistrationPanel.Location = new Point(492, 3);
+            RegistrationPanel.Name = "RegistrationPanel";
+            RegistrationPanel.Size = new Size(480, 800);
+            RegistrationPanel.TabIndex = 13;
+            RegistrationPanel.Paint += panel2_Paint;
             // 
             // lblTermsStatus
             // 
@@ -383,17 +382,17 @@
             lblEmailStatus.TabIndex = 26;
             lblEmailStatus.Click += lblEmailStatus_Click;
             // 
-            // lblRegUserStatus
+            // lblRegPhoneStatus
             // 
-            lblRegUserStatus.Anchor = AnchorStyles.None;
-            lblRegUserStatus.AutoSize = true;
-            lblRegUserStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRegUserStatus.ForeColor = Color.Red;
-            lblRegUserStatus.Location = new Point(90, 245);
-            lblRegUserStatus.Name = "lblRegUserStatus";
-            lblRegUserStatus.Size = new Size(0, 14);
-            lblRegUserStatus.TabIndex = 25;
-            lblRegUserStatus.Click += lblRegUserStatus_Click;
+            lblRegPhoneStatus.Anchor = AnchorStyles.None;
+            lblRegPhoneStatus.AutoSize = true;
+            lblRegPhoneStatus.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRegPhoneStatus.ForeColor = Color.Red;
+            lblRegPhoneStatus.Location = new Point(90, 245);
+            lblRegPhoneStatus.Name = "lblRegPhoneStatus";
+            lblRegPhoneStatus.Size = new Size(0, 14);
+            lblRegPhoneStatus.TabIndex = 25;
+            lblRegPhoneStatus.Click += lblRegUserStatus_Click;
             // 
             // lblNameStatus
             // 
@@ -639,9 +638,9 @@
             lblRegUser.ForeColor = Color.White;
             lblRegUser.Location = new Point(90, 192);
             lblRegUser.Name = "lblRegUser";
-            lblRegUser.Size = new Size(90, 18);
+            lblRegUser.Size = new Size(59, 18);
             lblRegUser.TabIndex = 5;
-            lblRegUser.Text = "Username";
+            lblRegUser.Text = "Phone";
             // 
             // txtRegName
             // 
@@ -678,22 +677,87 @@
             lblRegistration.Text = "Registraion";
             lblRegistration.Click += lblRegistration_Click;
             // 
-            // pnlVarify
+            // WelcomePanel
             // 
-            pnlVarify.Anchor = AnchorStyles.None;
-            pnlVarify.BackColor = Color.FromArgb(100, 103, 105);
-            pnlVarify.Controls.Add(btnVariX);
-            pnlVarify.Controls.Add(btnVariSub);
-            pnlVarify.Controls.Add(lnkResend);
-            pnlVarify.Controls.Add(TxtCode);
-            pnlVarify.Controls.Add(lnlMail);
-            pnlVarify.Controls.Add(lnkvariChange);
-            pnlVarify.Controls.Add(lblCodeSend);
-            pnlVarify.Controls.Add(lblVari);
-            pnlVarify.Location = new Point(1543, 754);
-            pnlVarify.Name = "pnlVarify";
-            pnlVarify.Size = new Size(417, 260);
-            pnlVarify.TabIndex = 14;
+            WelcomePanel.Anchor = AnchorStyles.None;
+            WelcomePanel.BackColor = Color.FromArgb(60, 63, 65);
+            WelcomePanel.Controls.Add(btnEnter);
+            WelcomePanel.Controls.Add(label7);
+            WelcomePanel.Controls.Add(label6);
+            WelcomePanel.Controls.Add(label2);
+            WelcomePanel.Location = new Point(1401, 0);
+            WelcomePanel.Name = "WelcomePanel";
+            WelcomePanel.Size = new Size(900, 800);
+            WelcomePanel.TabIndex = 16;
+            // 
+            // btnEnter
+            // 
+            btnEnter.Anchor = AnchorStyles.None;
+            btnEnter.BackColor = Color.FromArgb(40, 167, 69);
+            btnEnter.FlatStyle = FlatStyle.Popup;
+            btnEnter.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEnter.ForeColor = Color.FromArgb(235, 235, 235);
+            btnEnter.Location = new Point(330, 630);
+            btnEnter.Name = "btnEnter";
+            btnEnter.Size = new Size(240, 60);
+            btnEnter.TabIndex = 18;
+            btnEnter.Text = "Enter";
+            btnEnter.UseVisualStyleBackColor = false;
+            btnEnter.Click += btnEnter_Click;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(235, 235, 235);
+            label7.Location = new Point(179, 438);
+            label7.Name = "label7";
+            label7.Size = new Size(542, 140);
+            label7.TabIndex = 4;
+            label7.Text = "Your complete household financial companion\r\nEasily track expenses\r\nManage meals\r\n Keep everyone in sync\r\nAll in one simple application";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(235, 235, 235);
+            label6.Location = new Point(290, 97);
+            label6.Name = "label6";
+            label6.Size = new Size(320, 22);
+            label6.TabIndex = 3;
+            label6.Text = "Smart Household, Smart Finances";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(235, 235, 235);
+            label2.Location = new Point(160, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(580, 55);
+            label2.TabIndex = 2;
+            label2.Text = "Welcome To GhorKhata";
+            // 
+            // VarificationPanel
+            // 
+            VarificationPanel.Anchor = AnchorStyles.None;
+            VarificationPanel.BackColor = Color.FromArgb(100, 103, 105);
+            VarificationPanel.Controls.Add(btnVariX);
+            VarificationPanel.Controls.Add(btnVariSub);
+            VarificationPanel.Controls.Add(lnkResend);
+            VarificationPanel.Controls.Add(TxtCode);
+            VarificationPanel.Controls.Add(lnlMail);
+            VarificationPanel.Controls.Add(lnkvariChange);
+            VarificationPanel.Controls.Add(lblCodeSend);
+            VarificationPanel.Controls.Add(lblVari);
+            VarificationPanel.Location = new Point(978, 544);
+            VarificationPanel.Name = "VarificationPanel";
+            VarificationPanel.Size = new Size(417, 260);
+            VarificationPanel.TabIndex = 14;
             // 
             // btnVariX
             // 
@@ -807,44 +871,44 @@
             lblVari.Text = "Varification";
             lblVari.Click += lblVari_Click;
             // 
-            // pnlForget
+            // ForgetPanel
             // 
-            pnlForget.Anchor = AnchorStyles.None;
-            pnlForget.BackColor = Color.FromArgb(80, 83, 85);
-            pnlForget.Controls.Add(btnForgX);
-            pnlForget.Controls.Add(label3);
-            pnlForget.Controls.Add(label4);
-            pnlForget.Controls.Add(label5);
-            pnlForget.Controls.Add(txtForPass);
-            pnlForget.Controls.Add(txtForConPass);
-            pnlForget.Controls.Add(lblForPass);
-            pnlForget.Controls.Add(lblForConPass);
-            pnlForget.Controls.Add(btnNext);
-            pnlForget.Controls.Add(txtForMail);
-            pnlForget.Controls.Add(lbldontWorry);
-            pnlForget.Controls.Add(lblForget);
-            pnlForget.Location = new Point(1547, 754);
-            pnlForget.Name = "pnlForget";
-            pnlForget.Size = new Size(417, 530);
-            pnlForget.TabIndex = 15;
-            pnlForget.Paint += pnlForget_Paint;
+            ForgetPanel.Anchor = AnchorStyles.None;
+            ForgetPanel.BackColor = Color.FromArgb(80, 83, 85);
+            ForgetPanel.Controls.Add(btnForgetPanelClose);
+            ForgetPanel.Controls.Add(label3);
+            ForgetPanel.Controls.Add(label4);
+            ForgetPanel.Controls.Add(label5);
+            ForgetPanel.Controls.Add(txtForPass);
+            ForgetPanel.Controls.Add(txtForConPass);
+            ForgetPanel.Controls.Add(lblForPass);
+            ForgetPanel.Controls.Add(lblForConPass);
+            ForgetPanel.Controls.Add(btnNext);
+            ForgetPanel.Controls.Add(txtForMail);
+            ForgetPanel.Controls.Add(lbldontWorry);
+            ForgetPanel.Controls.Add(lblForget);
+            ForgetPanel.Location = new Point(978, 8);
+            ForgetPanel.Name = "ForgetPanel";
+            ForgetPanel.Size = new Size(417, 530);
+            ForgetPanel.TabIndex = 15;
+            ForgetPanel.Paint += pnlForget_Paint;
             // 
-            // btnForgX
+            // btnForgetPanelClose
             // 
-            btnForgX.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnForgX.BackColor = Color.FromArgb(192, 0, 0);
-            btnForgX.FlatStyle = FlatStyle.Popup;
-            btnForgX.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnForgX.ForeColor = Color.FromArgb(235, 235, 235);
-            btnForgX.Location = new Point(378, 5);
-            btnForgX.Margin = new Padding(0);
-            btnForgX.Name = "btnForgX";
-            btnForgX.RightToLeft = RightToLeft.Yes;
-            btnForgX.Size = new Size(35, 35);
-            btnForgX.TabIndex = 42;
-            btnForgX.Text = "X";
-            btnForgX.UseVisualStyleBackColor = false;
-            btnForgX.Click += BtnBack_Click;
+            btnForgetPanelClose.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnForgetPanelClose.BackColor = Color.FromArgb(192, 0, 0);
+            btnForgetPanelClose.FlatStyle = FlatStyle.Popup;
+            btnForgetPanelClose.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnForgetPanelClose.ForeColor = Color.FromArgb(235, 235, 235);
+            btnForgetPanelClose.Location = new Point(378, 5);
+            btnForgetPanelClose.Margin = new Padding(0);
+            btnForgetPanelClose.Name = "btnForgetPanelClose";
+            btnForgetPanelClose.RightToLeft = RightToLeft.Yes;
+            btnForgetPanelClose.Size = new Size(35, 35);
+            btnForgetPanelClose.TabIndex = 42;
+            btnForgetPanelClose.Text = "X";
+            btnForgetPanelClose.UseVisualStyleBackColor = false;
+            btnForgetPanelClose.Click += BtnBack_Click;
             // 
             // label3
             // 
@@ -972,107 +1036,43 @@
             lblForget.TabIndex = 31;
             lblForget.Text = "Forget Password";
             // 
-            // pnlWelcome
-            // 
-            pnlWelcome.Anchor = AnchorStyles.None;
-            pnlWelcome.BackColor = Color.FromArgb(60, 63, 65);
-            pnlWelcome.Controls.Add(btnEnter);
-            pnlWelcome.Controls.Add(label7);
-            pnlWelcome.Controls.Add(label6);
-            pnlWelcome.Controls.Add(label2);
-            pnlWelcome.Location = new Point(86, 840);
-            pnlWelcome.Name = "pnlWelcome";
-            pnlWelcome.Size = new Size(900, 800);
-            pnlWelcome.TabIndex = 16;
-            // 
-            // btnEnter
-            // 
-            btnEnter.Anchor = AnchorStyles.None;
-            btnEnter.BackColor = Color.FromArgb(40, 167, 69);
-            btnEnter.FlatStyle = FlatStyle.Popup;
-            btnEnter.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEnter.ForeColor = Color.FromArgb(235, 235, 235);
-            btnEnter.Location = new Point(330, 630);
-            btnEnter.Name = "btnEnter";
-            btnEnter.Size = new Size(240, 60);
-            btnEnter.TabIndex = 18;
-            btnEnter.Text = "Enter";
-            btnEnter.UseVisualStyleBackColor = false;
-            btnEnter.Click += btnEnter_Click;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Top;
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(235, 235, 235);
-            label7.Location = new Point(179, 438);
-            label7.Name = "label7";
-            label7.Size = new Size(542, 140);
-            label7.TabIndex = 4;
-            label7.Text = "Your complete household financial companion\r\nEasily track expenses\r\nManage meals\r\n Keep everyone in sync\r\nAll in one simple application";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top;
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(235, 235, 235);
-            label6.Location = new Point(290, 97);
-            label6.Name = "label6";
-            label6.Size = new Size(320, 22);
-            label6.TabIndex = 3;
-            label6.Text = "Smart Household, Smart Finances";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top;
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(235, 235, 235);
-            label2.Location = new Point(160, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(580, 55);
-            label2.TabIndex = 2;
-            label2.Text = "Welcome To GhorKhata";
-            // 
             // LoginRegTimer
             // 
-            LoginRegTimer.Interval = 1;
+            LoginRegTimer.Interval = 10;
             // 
             // WelcomeTimer
             // 
-            WelcomeTimer.Interval = 1;
+            WelcomeTimer.Interval = 10;
             WelcomeTimer.Tick += WelcomeTimer_Tick;
             // 
             // AuthForm
             // 
+            AcceptButton = btnEnter;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
             ClientSize = new Size(1584, 861);
-            Controls.Add(pnlWelcome);
-            Controls.Add(pnlForget);
-            Controls.Add(pnlVarify);
-            Controls.Add(pnlRegistration);
-            Controls.Add(pnlLogin);
+            Controls.Add(WelcomePanel);
+            Controls.Add(ForgetPanel);
+            Controls.Add(VarificationPanel);
+            Controls.Add(RegistrationPanel);
+            Controls.Add(LoginPanel);
             Name = "AuthForm";
             Padding = new Padding(3, 0, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             WindowState = FormWindowState.Maximized;
             Load += LoginForm_Load;
-            pnlLogin.ResumeLayout(false);
-            pnlLogin.PerformLayout();
-            pnlRegistration.ResumeLayout(false);
-            pnlRegistration.PerformLayout();
-            pnlVarify.ResumeLayout(false);
-            pnlVarify.PerformLayout();
-            pnlForget.ResumeLayout(false);
-            pnlForget.PerformLayout();
-            pnlWelcome.ResumeLayout(false);
-            pnlWelcome.PerformLayout();
+            LoginPanel.ResumeLayout(false);
+            LoginPanel.PerformLayout();
+            RegistrationPanel.ResumeLayout(false);
+            RegistrationPanel.PerformLayout();
+            WelcomePanel.ResumeLayout(false);
+            WelcomePanel.PerformLayout();
+            VarificationPanel.ResumeLayout(false);
+            VarificationPanel.PerformLayout();
+            ForgetPanel.ResumeLayout(false);
+            ForgetPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1087,8 +1087,8 @@
         private Label lblNewtoGhorKhata;
         private LinkLabel lbkCreate;
         private CheckBox chkRemember;
-        private Panel pnlLogin;
-        private Panel pnlRegistration;
+        private Panel LoginPanel;
+        private Panel RegistrationPanel;
         private Label lblRegUser;
         private TextBox txtRegName;
         private Label lblRegName;
@@ -1114,14 +1114,14 @@
         private Label lblLogin;
         private Label lblRegistration;
         private Label lblPassStatus;
-        private Label lblRegUserStatus;
+        private Label lblRegPhoneStatus;
         private Label lblNameStatus;
         private Label lblDOBStatus;
         private Label lblEmailStatus;
         private Label lblGenderStatus;
         private Label lblTermsStatus;
-        private Panel pnlVarify;
-        private Panel pnlForget;
+        private Panel VarificationPanel;
+        private Panel ForgetPanel;
         private Label lblVari;
         private Label lblCodeSend;
         private Label lnlMail;
@@ -1143,9 +1143,9 @@
         private Label lblLogPassStatus;
         private Label lblLogUserStatus;
         private Button btnVariX;
-        private Button btnForgX;
+        private Button btnForgetPanelClose;
         private Label label1;
-        private Panel pnlWelcome;
+        private Panel WelcomePanel;
         private Label label2;
         private Label label7;
         private Label label6;

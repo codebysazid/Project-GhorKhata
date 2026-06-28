@@ -15,16 +15,6 @@ namespace GhorKhata.Logic.AuthForm
         private bool SlidingLeft = false;
         private bool Sliding = false;
 
-        public LoginRegistrationSlider(Panel login, Panel registration, System.Windows.Forms.Timer timer, int speed)
-        {
-            loginPanel = login;
-            registrationPanel = registration;
-            loginRegTimer = timer;
-            Speed = speed;
-
-            loginRegTimer.Tick += Timer_Tick;
-        }
-
         public void StartSlidingLeft()
         {
             Sliding = true;
@@ -82,5 +72,16 @@ namespace GhorKhata.Logic.AuthForm
         {
             loginRegTimer.Tick -= Timer_Tick;
         }
+
+        public LoginRegistrationSlider(Panel login, Panel registration, System.Windows.Forms.Timer timer, int speed)
+        {
+            loginPanel = login;
+            registrationPanel = registration;
+            loginRegTimer = timer;
+            Speed = speed;
+
+            loginRegTimer.Tick += Timer_Tick;
+        }
+
     }
 }

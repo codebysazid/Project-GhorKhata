@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GhorKhata.Models
 {
-    internal class ValidationResult
+    internal class RegistrationValidationResult
     {
         public bool IsValid { get; set; }
         public string NameMessage { get; set; }
-        public string UsernameMessage { get; set; }
+        public string PhoneMessage { get; set; }
         public string EmailMessage { get; set; }
         public string DOBMessage { get; set; }
         public string GenderMessage { get; set; }

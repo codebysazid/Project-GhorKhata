@@ -15,15 +15,6 @@ namespace GhorKhata.Logic.AuthForm
         private int Speed = 40;
         private bool Sliding = false;
 
-        public WelcomePanelSlider(Panel panel, System.Windows.Forms.Timer timer, int speed)
-        {
-            welcomePanel = panel;
-            welcomeTimer = timer;
-            Speed = speed;
-
-            welcomeTimer.Tick += WelcomeTimer_Tick;
-        }
-
         public void StartSliding()
         {
             Sliding = true;
@@ -34,6 +25,11 @@ namespace GhorKhata.Logic.AuthForm
         {
             Sliding = false;
             welcomeTimer.Stop();
+        }
+
+        public void Dispose()
+        {
+            welcomeTimer.Tick -= WelcomeTimer_Tick;
         }
 
         private void WelcomeTimer_Tick(object sender, EventArgs e)
@@ -47,9 +43,13 @@ namespace GhorKhata.Logic.AuthForm
             }
         }
 
-        public void Dispose()
+        public WelcomePanelSlider(Panel panel, System.Windows.Forms.Timer timer, int speed)
         {
-            welcomeTimer.Tick -= WelcomeTimer_Tick;
+            welcomePanel = panel;
+            welcomeTimer = timer;
+            Speed = speed;
+
+            welcomeTimer.Tick += WelcomeTimer_Tick;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,21 +17,25 @@ namespace GhorKhata
 
         private WelcomePanelSlider welcomeSlider;
         private LoginRegistrationSlider loginRegSlider;
+        private RegistrationRules validator;
 
 
         public AuthForm()
         {
             InitializeComponent();
 
-            pnlLogin.Location = new Point((this.ClientSize.Width - pnlLogin.Width) / 2, (this.Height - pnlLogin.Height) / 2);
-            pnlRegistration.Location = new Point(this.Width + 180, pnlLogin.Top);
-            pnlWelcome.Location = new Point((this.ClientSize.Width - pnlWelcome.Width) / 2, (this.Height - pnlWelcome.Height) / 2);
+            LoginPanel.Location = new Point((this.ClientSize.Width - LoginPanel.Width) / 2, (this.Height - LoginPanel.Height) / 2);
+            RegistrationPanel.Location = new Point(this.Width + 180, LoginPanel.Top);
+            WelcomePanel.Location = new Point((this.ClientSize.Width - WelcomePanel.Width) / 2, (this.Height - WelcomePanel.Height) / 2);
+            ForgetPanel.Location = new Point((this.ClientSize.Width - ForgetPanel.Width) / 2, (this.Height - ForgetPanel.Height) / 2);
+            VarificationPanel.Location = new Point((this.ClientSize.Width - VarificationPanel.Width) / 2, (this.Height - VarificationPanel.Height) / 2);
 
-            pnlForget.Visible = false;
-            pnlVarify.Visible = false;
+            ForgetPanel.Visible = false;
+            VarificationPanel.Visible = false;
 
-            welcomeSlider = new WelcomePanelSlider(pnlWelcome, WelcomeTimer, speed: 30);
-            loginRegSlider = new LoginRegistrationSlider(pnlLogin, pnlRegistration, LoginRegTimer, speed: 40);
+            welcomeSlider = new WelcomePanelSlider(WelcomePanel, WelcomeTimer, speed: 30);
+            loginRegSlider = new LoginRegistrationSlider(LoginPanel, RegistrationPanel, LoginRegTimer, speed: 40);
+
 
         }
 
@@ -58,7 +63,7 @@ namespace GhorKhata
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-
+            ForgetPanel.Visible = false;
         }
 
         private void linkLabelCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -208,7 +213,7 @@ namespace GhorKhata
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            VarificationPanel.Visible = false;
         }
 
         private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -218,12 +223,12 @@ namespace GhorKhata
 
         private void lnkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            pnlForget.Visible = true;
+            ForgetPanel.Visible = true;
         }
 
         private void btnForgX_Click(object sender, EventArgs e)
         {
-            pnlForget.Visible = false;
+            ForgetPanel.Visible = false;
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
